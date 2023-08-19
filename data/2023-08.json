@@ -1,6 +1,7 @@
 {
     "issues_title": "2023-08",
     "issues_url": "https://github.com/wdssmq/GesF-Note/issues/1",
+    "issues_user": "wdssmq",
     "note_data": [
         {
             "Title": "「折腾」Docker 部署 Caddy",
