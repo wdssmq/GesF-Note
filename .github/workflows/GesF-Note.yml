@@ -1,0 +1,49 @@
+name: GesF-Note
+on:
+  issue_comment:
+    types: [created, deleted, edited]
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  def:
+    runs-on: ubuntu-20.04
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      # Checking out the repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      # Build Data
+      - name: Build Data
+        env:
+          PICK_LABEL: ${{ secrets.PICK_LABEL }}
+          GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_REPO: ${{ github.repository }}
+        run: |
+          pip install pyyaml requests
+          python3 main.py
+      # Commit Changes To Git
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git status
+          # git diff-index --quiet HEAD || (git commit -m "Auto Commit" -a --no-verify)
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "Auto Commit" -a --no-verify
+          fi
+      # Push Changes To Git
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
