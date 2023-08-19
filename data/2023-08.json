@@ -1,0 +1,124 @@
+{
+    "issues_title": "2023-08",
+    "issues_url": "https://github.com/wdssmq/GesF-Note/issues/1",
+    "note_data": [
+        {
+            "Title": "「折腾」Docker 部署 Caddy",
+            "Desc": "除了本站所在的机子外，还另外有两台半 VPS，那半台因为是 NAT 在写本文时仍然在吃灰，剩下两台姑且按侧重……",
+            "Source": "[url=https://www.wdssmq.com]沉冰浮水的博客[/url]",
+            "Tags": "折腾, Web, Docker, 备忘",
+            "Type": "文章",
+            "Url": "https://www.wdssmq.com/post/20100717821.html"
+        },
+        {
+            "Title": "「折腾」使用浏览器自带功能修改网站「响应标头」",
+            "Desc": "工程化开发「GM_脚本」+「热重载」时会受到一些网站的 CSP 策略限制，可以使用浏览器自带的方法修改「响应标头」来绕过了限制……",
+            "Source": "[url=https://www.wdssmq.com]沉冰浮水的博客[/url]",
+            "Tags": "折腾, 浏览器, GM_脚本",
+            "Type": "文章",
+            "Url": "https://www.wdssmq.com/post/20120902324.html"
+        },
+        {
+            "Title": "WebDav 折腾「其一」",
+            "Desc": "既是前情提要，也是广告 之前图便宜买了台 NAT VPS，「1G RAM / 50GB Storage / EUR…",
+            "Source": "[url=https://www.wdssmq.com]沉冰浮水的博客[/url]",
+            "Tags": "WebDav, 网盘, 折腾",
+            "Type": "文章",
+            "Url": "https://www.wdssmq.com/post/20100514969.html"
+        },
+        {
+            "Title": "「Git_笔记」git remote 命令",
+            "Desc": "经常是先克隆了原始项目查看，然后发现需要作些修改，就需要 Fork 到自己账号下一份，所以要再修改一下远程仓库地址…",
+            "Source": "[url=https://www.wdssmq.com]沉冰浮水的博客[/url]",
+            "Tags": "Git_笔记, 折腾, Git",
+            "Type": "文章",
+            "Url": "https://www.wdssmq.com/post/20220525683.html"
+        },
+        {
+            "Title": "「Git_笔记」HEAD detached from xxxx 问题解决",
+            "Desc": "久违的想写个有点复杂的 Z-BlogPHP 插件，中间需要参考自己的其他项目，顺手改了下插件的一些格式排版，加了个…",
+            "Source": "[url=https://www.wdssmq.com]沉冰浮水的博客[/url]",
+            "Tags": "Git_笔记, 折腾, Git",
+            "Type": "文章",
+            "Url": "https://www.wdssmq.com/post/20221127394.html"
+        },
+        {
+            "Title": "「Git_笔记」Git Tag 操作汇总",
+            "Desc": "日常纠结之：本文内容是因为实际需要查找的资料汇总而成，所以过程中时临时存在哪里更合适呢.jpg 这一次是存在了 g…",
+            "Source": "[url=https://www.wdssmq.com]沉冰浮水的博客[/url]",
+            "Tags": "Git_笔记, 折腾, Git",
+            "Type": "文章",
+            "Url": "https://www.wdssmq.com/post/20220407047.html"
+        },
+        {
+            "Title": "「水坑」Z-BlogPHP 接口本质之「PHP 可变函数」",
+            "Desc": "一 严格来说，全部接口都是「监听」，监听接口本身被触发，然后执行指定的操作，或者对接口传递的数据进行处理。",
+            "Source": "[url=https://www.wdssmq.com]沉冰浮水的博客[/url]",
+            "Tags": "GesF-Force, Z-BlogPHP, PHP",
+            "Type": "文章",
+            "Url": "https://www.wdssmq.com/post/20220409155.html"
+        },
+        {
+            "Title": "「水坑」Z-BlogPHP 模板机制讲解「简易版」",
+            "Desc": "例行中二时间 好像确实会不少东西，然而日常不知道有什么意义；...",
+            "Source": "[url=https://www.wdssmq.com]沉冰浮水的博客[/url]",
+            "Tags": "GesF-Force, Z-BlogPHP, PHP",
+            "Type": "文章",
+            "Url": "https://www.wdssmq.com/post/20201026266.html"
+        },
+        {
+            "Title": "「水坑」略深入的讲解伪静态相关的知识",
+            "Desc": "url 理论上指向的是一个文件，即使是目录也会按默认设置寻找 index.html 或 index.php，不存在…",
+            "Source": "[url=https://www.wdssmq.com]沉冰浮水的博客[/url]",
+            "Tags": "GesF-Force, Rewrite, PHP",
+            "Type": "文章",
+            "Url": "https://www.wdssmq.com/post/20190704012.html"
+        },
+        {
+            "Title": "GitHub - wdssmq/snippets",
+            "Desc": "VSCode 代码片段，Z-BlogPHP 为主",
+            "Image": null,
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub, vscode, vscode-snippets, z-blogphp",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/snippets"
+        },
+        {
+            "Title": "「小代码」Z-BlogPHP 自用代码片段演示",
+            "Desc": "视频色调略奇怪；小红点控制鼠标的移动轨迹也略奇怪；",
+            "Image": null,
+            "Source": "[url=https://space.bilibili.com/44744006]沉冰浮水@bilibili[/url]",
+            "Tags": "哔哩哔哩",
+            "Type": "视频",
+            "Url": "https://www.bilibili.com/video/BV1iv4y1K7iy"
+        },
+        {
+            "Title": "「小代码」Z-BlogPHP 插件开发之热重载演示（LiveReload）",
+            "Desc": "修改后自动刷新网页什么的……",
+            "Image": null,
+            "Source": "[url=https://space.bilibili.com/44744006]沉冰浮水@bilibili[/url]",
+            "Tags": "哔哩哔哩",
+            "Type": "视频",
+            "Url": "https://www.bilibili.com/video/BV1eD4y147f3"
+        },
+        {
+            "Title": "「水坑」关于一个能用但是错误的正则表达式",
+            "Desc": "关于网上流传的「PHP 提取第一张图」中的正则表达式很多都是错的这件事",
+            "Image": null,
+            "Source": "[url=https://space.bilibili.com/44744006]沉冰浮水@bilibili[/url]",
+            "Tags": "哔哩哔哩",
+            "Type": "视频",
+            "Url": "https://www.bilibili.com/video/BV1Z14y1V7MR"
+        },
+        {
+            "Title": "「小代码」rollup.js 开发「GM_脚本」演示",
+            "Desc": "关于录制过程比代码本身「大」（繁琐）了很多这件事.jpg 视频形式并不适合作为教程，只是演示；",
+            "Image": null,
+            "Source": "[url=https://space.bilibili.com/44744006]沉冰浮水@bilibili[/url]",
+            "Tags": "哔哩哔哩",
+            "Type": "视频",
+            "Url": "https://www.bilibili.com/video/BV1qe4y1d7ZM"
+        }
+    ],
+    "note_count": 14
+}
