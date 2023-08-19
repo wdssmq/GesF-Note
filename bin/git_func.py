@@ -37,8 +37,8 @@ def git_func_issues(comments_url=None):
 
 
 pick_keys_info = {
-    "issues": ["url", "html_url", "title", "body", "comments_url"],
-    "comments": ["url", "html_url", "body"],
+    "issues": ["url", "html_url", "title", "body", "comments_url", "user"],
+    "comments": ["url", "html_url", "body", "user"],
 }
 
 
@@ -90,6 +90,7 @@ def git_func_main():
         new_item = {}
         new_item["issues_title"] = item["title"]
         new_item["issues_url"] = item["html_url"]
+        new_item["issues_user"] = item["user"]["login"]
         new_item["note_data"] = [extract_info(item["body"])]
         # 抓取 issue comments
         comments = git_func_issues(item["comments_url"])
@@ -97,7 +98,9 @@ def git_func_main():
         comments = filter_issues(comments, "comments")
         # 对于每个 issue comment，提取信息
         for comment in comments:
-            new_item["note_data"].append(extract_info(comment["body"]))
+            # 评论用户必须是 issues 用户
+            if comment["user"]["login"] == item["user"]["login"]:
+                new_item["note_data"].append(extract_info(comment["body"]))
         # 计数
         new_item["note_count"] = len(new_item["note_data"])
         # 保存数据到文件
