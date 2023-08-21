@@ -30,6 +30,13 @@ jobs:
         run: |
           pip install pyyaml requests
           python3 main.py
+      # Update Repo OG:IMAGE
+      - name: Update Repo OG:IMAGE
+        env:
+          GIT_REPO: ${{ github.repository }}
+          HERO_PATH: blog-astro/public/placeholder-hero.jpg
+        run: |
+          wget -O $HERO_PATH https://opengraph.githubassets.com/0/$GIT_REPO
       # Commit Changes To Git
       - name: Commit files
         run: |
