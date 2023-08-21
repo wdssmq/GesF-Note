@@ -9,6 +9,9 @@ title: {title}
 pubDate: {pubDate}
 description: {description}
 heroImage: {heroImage}
+tags:
+  - GesF-Note
+  - "{year}"
 ---\n"""
 
 md_body_tpl = """
@@ -54,12 +57,15 @@ def save_md(data, md_path, debug=False):
     """保存为 md 文件"""
     file_name = data["issues_title"].replace(" ", "_") + ".md"
     file_path = md_path + file_name
+    # 从 data["issues_title"] 中提取年份
+    data["year"] = re.search(r"\d{4}", data["issues_title"]).group(0)
     # meta data
     meta_data = {
         "title": f"第 {data['issues_title']} 期",
         "pubDate": data["issues_title"],
         "description": f"第 {data['issues_title']} 期",
         "heroImage": "/placeholder-hero.jpg",
+        "year": data["year"],
     }
     # markdown content
     md_content = md_head_tpl.format(**meta_data) + "\n"
