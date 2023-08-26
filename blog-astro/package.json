@@ -1,7 +1,8 @@
 {
   "name": "blog-astro",
+  "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -16,6 +17,7 @@
     "@types/marked": "^5.0.1",
     "astro": "^2.10.9",
     "less": "^4.2.0",
-    "marked": "^7.0.3"
+    "marked": "^7.0.3",
+    "sanitize-html": "^2.11.0"
   }
 }
