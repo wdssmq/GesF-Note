@@ -1,0 +1,100 @@
+issues_title: 2023-09
+issues_url: https://github.com/wdssmq/GesF-Note/issues/2
+issues_user: wdssmq
+note_count: 14
+note_data:
+- Desc: 剪了个视频投 B 站，回来就不想写了。。 我失败了 100 多次，最后通关了这个游戏关卡，然而人生中的各种事件同样…
+  Source: '[url=https://www.wdssmq.com]沉冰浮水的博客[/url]'
+  Tags: 游戏, 人生, 无力吐槽
+  Title: 「言说」卡关人生
+  Type: 文章
+  Url: https://www.wdssmq.com/post/20230102799.html
+- Desc: 前言 一直以来有一个纠结，正好在临开写前想到了如何概述这个纠结，那就是 —— 「实名过的小号还算不算小号这件事.j…
+  Source: '[url=https://www.wdssmq.com]沉冰浮水的博客[/url]'
+  Tags: 说点什么, 言说
+  Title: 「言说」2023 年仍然在纠结密码问题什么的
+  Type: 文章
+  Url: https://www.wdssmq.com/post/20230102708.html
+- Desc: 用来记录各种折腾的东西，代码，文章或视频什么的丨大概可以理解为「咸鱼速报」…
+  Image: null
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/GesF-Note
+  Type: 代码
+  Url: https://github.com/wdssmq/GesF-Note
+- Desc: 为其他插件集成通知功能，提供通知接口；
+  Image: https://app-cdn.zblogcn.com/files/phpplugin/mz_Notice/logo.png
+  Source: '[url=https://app.zblogcn.com/?auth=6401c4a7-89cd-48f9-a68b-d6464d8c3bc8]沉冰浮水
+    - Z-Blog 应用中心[/url]'
+  Tags: Z-BlogPHP, Z-BlogPHP_插件
+  Title: Z-BlogPHP - 「水水」通知中心 - Z-Blog 应用中心
+  Type: 代码
+  Url: https://app.zblogcn.com/?id=40598
+- Desc: 各种「GM_脚本」
+  Image: null
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub, GM_脚本, javascript, tampermonkey
+  Title: GitHub - wdssmq/userscript
+  Type: 代码
+  Url: https://github.com/wdssmq/userscript
+- Desc: 一个基于 Astro 的静态博客；
+  Image: null
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/blog-astro
+  Type: 代码
+  Url: https://github.com/wdssmq/blog-astro
+- Desc: 前言 离上一篇已经 3 个月了，简单说就是买了台 NAT 的 VPS，然后在如何利用这个问题上考虑了下对接 WebDav…
+  Source: '[url=https://www.wdssmq.com]沉冰浮水的博客[/url]'
+  Tags: WebDav, 网盘, 折腾
+  Title: WebDav 折腾「其二」之 rclone
+  Type: 文章
+  Url: https://www.wdssmq.com/post/20100203443.html
+- Desc: 从中间开始自己就用不到什么的，然后某个站改了域名就突然受到关注，结果被 GreasyFork 封号了 (╯﹏╰）
+  Source: '[url=https://www.wdssmq.com]沉冰浮水的博客[/url]'
+  Tags: GM_脚本, BT, Tracker, JavaScript
+  Title: 「GM_脚本」qBittorrent 批量修改种子 tracker
+  Type: 文章
+  Url: https://www.wdssmq.com/post/20191117777.html
+- Desc: 使用 rollup 开发「GM_脚本」
+  Image: null
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/rollup-plugin-monkey
+  Type: 代码
+  Url: https://github.com/wdssmq/rollup-plugin-monkey
+- Desc: 不能邮箱登录的网站都是耍流氓「无力吐槽」...
+  Source: '[url=https://www.wdssmq.com]沉冰浮水的博客[/url]'
+  Tags: 碎碎念, 无力吐槽, 纠结
+  Title: 不能邮箱登录的网站都是耍流氓「无力吐槽」
+  Type: 文章
+  Url: https://www.wdssmq.com/post/20140507140.html
+- Desc: 就，确实挺旧的方案了，JS 部分只是多个文件拼接成一个，rollup 方案虽然有探究，然而旧的还是要维护；
+  Image: https://app-cdn.zblogcn.com/files/phpplugin/mzGrunt/logo.png
+  Source: '[url=https://app.zblogcn.com/?auth=6401c4a7-89cd-48f9-a68b-d6464d8c3bc8]沉冰浮水
+    - Z-Blog 应用中心[/url]'
+  Tags: Z-BlogPHP, Z-BlogPHP_插件
+  Title: Z-BlogPHP - 「开发工具」Grunt - Z-Blog 应用中心
+  Type: 代码
+  Url: https://app.zblogcn.com/?id=2110
+- Desc: Cloudflare Worker 反代爱发电 API
+  Image: null
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub, cloudflare, javascript, typescript
+  Title: GitHub - wdssmq/fadian-cf
+  Type: 代码
+  Url: https://github.com/wdssmq/fadian-cf
+- Desc: 在执行文件夹路径内随机选取一个文件直接打开或者调用 Everything 搜索；
+  Image: null
+  Source: '[url=https://getquicker.net/User/Actions/105131-%E6%B2%89%E5%86%B0%E6%B5%AE%E6%B0%B4]沉冰浮水分享的动作
+    - Quicker[/url]'
+  Tags: Quicker, 辅助工具
+  Title: 随机打开一个文件
+  Type: 脚本工具
+  Url: https://getquicker.net/Sharedaction?code=7b4408b0-6ddd-48af-42bb-08da08643be0
+- Desc: 正式接触 Vue.js 也两年多了，实际写过的项目好像也就 4 个？「基于 Vite」
+  Source: '[url=https://www.wdssmq.com]沉冰浮水的博客[/url]'
+  Tags: Vue, TypeScript, Web_开发, 折腾
+  Title: 「折腾」Vue 简单的状态管理实践
+  Type: 文章
+  Url: https://www.wdssmq.com/post/20220810247.html
