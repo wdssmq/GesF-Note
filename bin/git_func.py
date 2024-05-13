@@ -1,4 +1,5 @@
 """ GitHub 数据处理 """
+
 import inspect
 import re
 import json
@@ -75,7 +76,9 @@ def save_data(data, file_type="yml"):
             yaml.dump(data, file, allow_unicode=True)
         elif file_type == "json":
             json.dump(data, file, ensure_ascii=False, indent=4)
-    fnBug(f"保存文件：{file_path}", inspect.currentframe().f_lineno, debug_info["debug"])
+    fnBug(
+        f"保存文件：{file_path}", inspect.currentframe().f_lineno, debug_info["debug"]
+    )
 
 
 # 主入口函数
