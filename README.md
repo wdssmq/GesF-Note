@@ -2,6 +2,14 @@
 
 用来记录各种折腾的东西，代码，文章或视频什么的丨大概可以理解为「咸鱼速报」……
 
+## 安装依赖
+
+```bash
+pip install PyYAML
+pip install requests
+
+```
+
 ## 投喂支持
 
 爱发电：[https://afdian.net/a/wdssmq](https://afdian.net/a/wdssmq "沉冰浮水正在创作和 z-blog 相关或无关的各种有用或没用的代码 | 爱发电")

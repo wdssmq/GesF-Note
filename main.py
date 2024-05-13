@@ -24,6 +24,9 @@ def init():
     global config_info
     fnLog("## init")
 
+    # GIT_REPO: wdssmq/GesF-Note
+    # GIT_TOKEN: https://github.com/settings/tokens
+
     try:
         if os.environ["GIT_REPO"]:
             config_info["GIT_REPO"] = os.environ["GIT_REPO"]
