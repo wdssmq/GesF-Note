@@ -1,7 +1,7 @@
 issues_title: 2024-05
 issues_url: https://github.com/wdssmq/GesF-Note/issues/3
 issues_user: wdssmq
-note_count: 2
+note_count: 3
 note_data:
 - Desc: 具体列举了三种实现 PHP 网站开发时自动刷新网页的方法，也并不局限于 Z-BlogPHP；
   Image: null
@@ -17,3 +17,10 @@ note_data:
   Title: 「折腾」VSCode 扩展分组管理
   Type: 视频
   Url: https://www.bilibili.com/video/BV1QMETeDEc7
+- Desc: 一个基于 Astro 的静态博客；
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub, astro, blog
+  Text: node:.post-intro
+  Title: GitHub - wdssmq/blog-astro
+  Type: 代码
+  Url: https://github.com/wdssmq/blog-astro

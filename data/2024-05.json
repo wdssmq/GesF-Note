@@ -20,7 +20,16 @@
             "Tags": "哔哩哔哩",
             "Type": "视频",
             "Url": "https://www.bilibili.com/video/BV1QMETeDEc7"
+        },
+        {
+            "Title": "GitHub - wdssmq/blog-astro",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/blog-astro",
+            "Text": "node:.post-intro",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Desc": "一个基于 Astro 的静态博客；",
+            "Tags": "GitHub, astro, blog"
         }
     ],
-    "note_count": 2
+    "note_count": 3
 }
