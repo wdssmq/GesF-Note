@@ -1,4 +1,4 @@
-import { CollectionEntry } from 'astro:content';
+import { CollectionEntry } from "astro:content";
 
 export interface Site {
     url: string
@@ -26,25 +26,50 @@ export interface Archive {
     description: string
 }
 
+export interface Search {
+    title: string
+    description: string
+}
+
+export interface Wailne {
+    enable: boolean
+    serverURL: string
+}
+
 export interface Opt {
     postsSize: number
     rssSize: number
     curFullYear: string
 }
 
+export interface pagination {
+    current: number
+    total: number
+    tpl: string
+    prev: {
+        num: number
+        link: string
+    }
+    next: {
+        num: number
+        link: string
+    }
+
+}
+
 export interface Func {
     paresTags: (config: Config) => void
     sortPosts: (a: CollectionEntry<blog>, b: CollectionEntry<blog>) => number
-    getPagination: (count: number, size: number, current?: number, tpl?: string) => any
+    getPagination: (count: number, size: number, current?: number, tpl?: string) => pagination
 }
-
-type keyOfConfig = "site" | "author" | "menus" | "archive" | "opt" | "func";
 
 export interface RequiredConfig {
     site: Site;
     author: Author;
     menus: MenuItem[];
     archive: Archive;
+    search: Search;
+    waline: Wailne;
     opt: Opt;
     func: Func;
 }
@@ -54,7 +79,10 @@ export interface UserConfig {
     author?: Partial<Author>;
     menus?: MenuItem[];
     archive?: Partial<Archive>;
+    search?: Partial<Search>;
+    waline?: Partial<Wailne>;
     opt?: Partial<Opt>;
     func?: Partial<Func>;
 }
 
+type ConfigKey = keyof RequiredConfig;

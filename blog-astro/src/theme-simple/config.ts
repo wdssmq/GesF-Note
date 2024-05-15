@@ -1,14 +1,14 @@
-import type { RequiredConfig, keyOfConfig } from "@/theme-simple/config.d"
+import type { RequiredConfig, ConfigKey } from "@/theme-simple/config.d";
 import { usrConfig } from "@/consts";
 
 const defConfig: RequiredConfig = {
     site: {
         url: "/",
-        title: 'My website.',
-        description: 'Welcome to my website!',
+        title: "My website.",
+        description: "Welcome to my website!",
         favicon: "/favicon.svg",
         image: "/placeholder-social.jpg", // default image for meta tag.
-        copy: '©{curFullYear} YOUR NAME HERE.', // default copy for footer.
+        copy: "©{curFullYear} YOUR NAME HERE.", // default copy for footer.
         locales: "zh-CN", // 'en-us'
     },
     author: {
@@ -17,13 +17,22 @@ const defConfig: RequiredConfig = {
         bio: "Your bio",
     },
     menus: [
-        { name: 'Home', path: '/' },
-        { name: 'Archive', path: '/archive' },
-        { name: 'About', path: '/about' },
+        { name: "Home", path: "/" },
+        { name: "Archive", path: "/archive" },
+        { name: "About", path: "/about" },
+        { name: "Search", path: "/search" },
     ],
     archive: {
         title: "Archive",
         description: "Archive description",
+    },
+    search: {
+        title: "Search",
+        description: "Search description",
+    },
+    waline: {
+        enable: false,
+        serverURL: "https:///your-domain.vercel.app",
     },
     opt: {
         postsSize: 13,
@@ -59,19 +68,20 @@ const defConfig: RequiredConfig = {
                     link: nextNum > 0 ? _link(nextNum) : "",
                 },
             };
-        }
-    }
+        },
+    },
 };
 
 // 以 defConfig 为基础，使用 usrConfig 中的设置进行覆盖或合并；
 const config: RequiredConfig = defConfig;
 for (const key in usrConfig) {
     if (Object.prototype.hasOwnProperty.call(usrConfig, key)) {
-        const element = usrConfig[key as keyOfConfig];
-        if (Array.isArray(element)) {
-            config[key as keyOfConfig] = element as any;
-        } else if (typeof element === "object") {
-            config[key as keyOfConfig] = { ...config[key as keyOfConfig], ...element } as any;
+        const curKey = key as ConfigKey;
+        const curEle = usrConfig[curKey];
+        if (Array.isArray(curEle)) {
+            config[curKey] = curEle as any;
+        } else if (typeof curEle === "object") {
+            config[curKey] = { ...config[curKey], ...curEle as any };
         }
     }
 }
@@ -79,7 +89,7 @@ config.func.paresTags(config);
 
 export { config };
 
-import { defineCollection, z } from 'astro:content';
+import { z } from "astro:content";
 export const blogSchema = {
     // Type-check frontmatter using a schema
     schema: z.object({
@@ -97,4 +107,4 @@ export const blogSchema = {
         heroImage: z.string().optional(),
         tags: z.array(z.string().or(z.number()).transform((val) => val.toString())),
     }),
-}
+};

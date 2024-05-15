@@ -5,7 +5,7 @@ import type { UserConfig } from "@/theme-simple/config.d"
 // 你可以在这里覆盖默认配置，不需要每项都写，每项的子项也是可选的。
 export const usrConfig: UserConfig = {
     site: {
-        url: "/",
+        url: "https://note.wdssmq.com",
         title: 'GesF Note',
         description: '咸鱼纪要 - diu 协会活动记录（雾丨GesF Lib',
         favicon: "/favicon.ico",
@@ -26,5 +26,13 @@ export const usrConfig: UserConfig = {
     archive: {
         title: "归档",
         description: "归档文章列表",
+    },
+    search: {
+        title: "搜索",
+        description: "搜索本站内容",
+    },
+    waline: {
+        enable: true,
+        serverURL: "https://waline-hexo.wdssmq.com/",
     },
 };

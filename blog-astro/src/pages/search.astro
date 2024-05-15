@@ -4,18 +4,14 @@ import SideBar from "@/theme-simple/_blocks/SideBar.astro";
 import BaseFoot from "@/theme-simple/_blocks/BaseFoot.astro";
 import { config } from "@/theme-simple/config";
 
-import BlogSingle from "@/theme-simple/_blocks/BlogSingle.astro";
+import SearchForm from "@/theme-simple/components/Search.astro";
 
-// import { frontmatter, Content } from "@content/pages/about.md";
-import { getEntry } from "astro:content";
-const about = await getEntry("pages", "about");
-const { Content } = await about.render();
 ---
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <BaseHead title={about.data.title} subtitle={config.site.title} description={about.data.description} image={about.data.heroImage || config.site.image} />
+        <BaseHead title={config.search.title} subtitle={config.site.title} description={config.search.description} image={config.site.image}/>
     </head>
     <body>
         <div id="app" class="main">
@@ -26,9 +22,10 @@ const { Content } = await about.render();
             />
             <div class="main-container">
                 <div class="content-container" data-aos="fade-up">
-                    <BlogSingle {...about.data}>
-                        <Content />
-                    </BlogSingle>
+                    <h2 class="search-title">{config.search.title}</h2>
+                    <div class="search-container">
+                        <SearchForm id="search" />
+                    </div>
                 </div>
             </div>
         </div>

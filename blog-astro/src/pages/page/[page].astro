@@ -8,8 +8,8 @@ import PageBar from "@/theme-simple/_blocks/PageBar.astro";
 import FormattedDate from "@/theme-simple/components/FormattedDate.astro";
 import GetAbstract from "@/theme-simple/components/GetAbstract.astro";
 
-import type { GetStaticPathsOptions, Page } from "astro"
-import { CollectionEntry, getCollection } from "astro:content";
+import type { GetStaticPathsOptions, Page } from "astro";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const posts = (await getCollection("blog")).sort(config.func.sortPosts);
@@ -21,7 +21,7 @@ const { data: posts, currentPage, total } = Astro.props.page as Page<CollectionE
 const pagination = config.func.getPagination(
     total,
     config.opt.postsSize,
-    currentPage
+    currentPage,
 );
 ---
 
@@ -80,7 +80,6 @@ const pagination = config.func.getPagination(
                                 )}
                             </article>
                         ))
-                        // <<文章列表
                     }
                     <PageBar {...pagination} isBar={true} />
                 </div>
