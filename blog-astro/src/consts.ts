@@ -5,7 +5,7 @@ import type { UserConfig } from "@/theme-simple/config.d"
 // 你可以在这里覆盖默认配置，不需要每项都写，每项的子项也是可选的。
 export const usrConfig: UserConfig = {
     site: {
-        url: "https://note.wdssmq.com",
+        url: "https://note.wdssmq.com/",
         title: 'GesF Note',
         description: '咸鱼纪要 - diu 协会活动记录（雾丨GesF Lib',
         favicon: "/favicon.ico",
