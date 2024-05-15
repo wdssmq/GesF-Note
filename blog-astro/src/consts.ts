@@ -21,6 +21,7 @@ export const usrConfig: UserConfig = {
     menus: [
         { name: '首页', path: '/' },
         { name: '归档', path: '/archive' },
+        { name: '搜索', path: '/search' },
         { name: '关于', path: '/about' },
     ],
     archive: {
