@@ -32,6 +32,7 @@ jobs:
           python3 main.py
       # Update Repo OG:IMAGE
       - name: Update Repo OG:IMAGE
+        if: github.event_name == 'issue_comment' && github.event.action == 'created'
         env:
           GIT_REPO: ${{ github.repository }}
           HERO_PATH: blog-astro/public/placeholder-hero.jpg
