@@ -47,7 +47,16 @@
             "Tags": "Z-BlogPHP, Z-BlogPHP_插件",
             "Type": "代码",
             "Url": "https://app.zblogcn.com/?id=2235"
+        },
+        {
+            "Title": "Z-BlogPHP - 「开发工具」Grunt - Z-Blog 应用中心",
+            "Desc": "「开发工具」Grunt - Z-Blog 应用中心",
+            "Image": "https://app-cdn.zblogcn.com/files/phpplugin/mzGrunt/logo.png",
+            "Source": "[url=https://app.zblogcn.com/?auth=6401c4a7-89cd-48f9-a68b-d6464d8c3bc8]沉冰浮水 - Z-Blog 应用中心[/url]",
+            "Tags": "Z-BlogPHP, Z-BlogPHP_插件",
+            "Type": "代码",
+            "Url": "https://app.zblogcn.com/?id=2110"
         }
     ],
-    "note_count": 5
+    "note_count": 6
 }
