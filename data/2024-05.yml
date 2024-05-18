@@ -1,7 +1,7 @@
 issues_title: 2024-05
 issues_url: https://github.com/wdssmq/GesF-Note/issues/3
 issues_user: wdssmq
-note_count: 4
+note_count: 5
 note_data:
 - Desc: 具体列举了三种实现 PHP 网站开发时自动刷新网页的方法，也并不局限于 Z-BlogPHP；
   Image: null
@@ -32,3 +32,11 @@ note_data:
   Title: Z-BlogPHP - Grizzle - Z-Blog 应用中心
   Type: 代码
   Url: https://app.zblogcn.com/?id=649
+- Desc: 这就是咸鱼吗？（仮） - Z-Blog 应用中心
+  Image: https://app-cdn.zblogcn.com/files/phptheme/acgMora/screenshot.png-screenshot
+  Source: '[url=https://app.zblogcn.com/?auth=6401c4a7-89cd-48f9-a68b-d6464d8c3bc8]沉冰浮水
+    - Z-Blog 应用中心[/url]'
+  Tags: Z-BlogPHP, Z-BlogPHP_插件
+  Title: Z-BlogPHP - 这就是咸鱼吗？（仮） - Z-Blog 应用中心
+  Type: 代码
+  Url: https://app.zblogcn.com/?id=2235

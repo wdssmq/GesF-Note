@@ -38,7 +38,16 @@
             "Tags": "Z-BlogPHP, Z-BlogPHP_插件",
             "Type": "代码",
             "Url": "https://app.zblogcn.com/?id=649"
+        },
+        {
+            "Title": "Z-BlogPHP - 这就是咸鱼吗？（仮） - Z-Blog 应用中心",
+            "Desc": "这就是咸鱼吗？（仮） - Z-Blog 应用中心",
+            "Image": "https://app-cdn.zblogcn.com/files/phptheme/acgMora/screenshot.png-screenshot",
+            "Source": "[url=https://app.zblogcn.com/?auth=6401c4a7-89cd-48f9-a68b-d6464d8c3bc8]沉冰浮水 - Z-Blog 应用中心[/url]",
+            "Tags": "Z-BlogPHP, Z-BlogPHP_插件",
+            "Type": "代码",
+            "Url": "https://app.zblogcn.com/?id=2235"
         }
     ],
-    "note_count": 4
+    "note_count": 5
 }
