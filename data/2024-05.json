@@ -29,7 +29,16 @@
             "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
             "Desc": "一个基于 Astro 的静态博客；",
             "Tags": "GitHub, astro, blog"
+        },
+        {
+            "Title": "Z-BlogPHP - Grizzle - Z-Blog 应用中心",
+            "Desc": "Grizzle - Z-Blog 应用中心",
+            "Image": "https://app-cdn.zblogcn.com/files/phptheme/Grizzle/screenshot.png-screenshot",
+            "Source": "[url=https://app.zblogcn.com/?auth=6401c4a7-89cd-48f9-a68b-d6464d8c3bc8]沉冰浮水 - Z-Blog 应用中心[/url]",
+            "Tags": "Z-BlogPHP, Z-BlogPHP_插件",
+            "Type": "代码",
+            "Url": "https://app.zblogcn.com/?id=649"
         }
     ],
-    "note_count": 3
+    "note_count": 4
 }
