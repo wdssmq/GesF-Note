@@ -14,14 +14,18 @@ from bin.md_func import save_md
 def git_func_issues(comments_url=None):
     """抓取 issues 或 issue comments 封装"""
     if comments_url is None:
-        issues = http_git_issues(
+        res = http_git_issues(
             config_info["PICK_LABEL"],
             config_info["GIT_REPO"],
             config_info["GIT_TOKEN"],
         )
     else:
-        issues = http_git_issues_comments(comments_url, config_info["GIT_TOKEN"])
-    return issues
+        res = http_git_issues_comments(comments_url, config_info["GIT_TOKEN"])
+    if "error" in res.keys() and res["error"]:
+        fnBug(res["message"], inspect.currentframe().f_lineno)
+        fnBug(res["data"])
+        return []
+    return res["data"]
 
 
 pick_keys_info = {
@@ -29,9 +33,8 @@ pick_keys_info = {
     "comments": ["url", "html_url", "body", "user"],
 }
 
-
 # 选出需要的字段
-def filter_issues(list_data, list_type="issues"):
+def git_func_issues_details(list_data, list_type="issues"):
     """选出需要的字段"""
     list_result = []
     for item_data in list_data:
@@ -72,35 +75,24 @@ def parse_and_save_issues_details():
     """解析并保存 issues 详情"""
     # 抓取 issues
     issues = git_func_issues()
-    # 检查错误
-    if "error" in issues.keys() and issues["error"]:
-        fnBug(issues["message"], inspect.currentframe().f_lineno)
-        fnBug(issues["data"])
-        return
-    issues = issues["data"]
     # 筛选数据
-    items = filter_issues(issues)
+    details = git_func_issues_details(issues)
     # 对于每个 issue，提取信息
-    for item in items:
+    for issue in details:
         new_item = {}
-        new_item["issues_title"] = item["title"]
-        new_item["issues_url"] = item["html_url"]
-        new_item["issues_user"] = item["user"]["login"]
-        note_info = extract_info(item["body"])
+        new_item["issues_title"] = issue["title"]
+        new_item["issues_url"] = issue["html_url"]
+        new_item["issues_user"] = issue["user"]["login"]
+        note_info = extract_info(issue["body"])
         new_item["note_data"] = [] if not note_info else [note_info]
         # 抓取 issue comments
-        comments = git_func_issues(item["comments_url"])
-        if "error" in comments.keys() and comments["error"]:
-            fnBug(comments["message"], inspect.currentframe().f_lineno)
-            fnBug(comments["data"])
-            continue
-        comments = comments["data"]
+        comments = git_func_issues(issue["comments_url"])
         # 筛选数据
-        comments = filter_issues(comments, "comments")
+        comments = git_func_issues_details(comments, "comments")
         # 对于每个 issue comment，提取信息
         for comment in comments:
             # 评论用户必须是 issues 用户
-            if comment["user"]["login"] == item["user"]["login"]:
+            if comment["user"]["login"] == issue["user"]["login"]:
                 note_info = extract_info(comment["body"])
                 if not note_info:
                     continue
