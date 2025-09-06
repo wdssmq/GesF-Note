@@ -84,6 +84,7 @@ def parse_and_save_issues_details():
         new_item["issues_title"] = issue["title"]
         new_item["issues_url"] = issue["html_url"]
         new_item["issues_user"] = issue["user"]["login"]
+        new_item["comments_url"] = issue["comments_url"]
         new_item["note_data"] = extract_and_append_info(issue["body"], [])
         # 抓取 issue comments
         comments = git_func_issues(issue["comments_url"])

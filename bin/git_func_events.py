@@ -38,7 +38,7 @@ def git_func_event_details(event_list):
         event_type = event.get("type", "")
         if event_type != "PushEvent":
             continue
-        event_repo = event.get("repo", {}).get("name", "")
+        event_repo = event.get("repo", {})
         # 判断是否存在同名的 repo 在 details ,存在则合并 commits
         if any(d["repo"] == event_repo for d in details):
             for d in details:
