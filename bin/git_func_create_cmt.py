@@ -25,7 +25,7 @@ Url: {Url}
 ```"""
 
     for event in event_data:
-        repo_url = f'https://github.com/{event["repo"]['name']}'
+        repo_url = f'https://github.com/{event["repo"]["name"]}'
         # 判断是否已经存在相同的 Url
         if any(note.get("Url") == repo_url for note in issue_data.get("note_data", [])):
             continue
