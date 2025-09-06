@@ -105,9 +105,11 @@ def filter_issues(list_data, list_type="issues"):
 def extract_info(body):
     """从 issue 的 body 中提取信息"""
     # 匹配 ```yml ... ``` 中的内容
-    yaml_str = re.search(r"```yml(.*?)```", body, re.S).group(1)
+    yaml_str = re.search(r"```yml(.*?)```", body, re.S)
+    if not yaml_str:
+        return {}
     # 将 yaml 字符串转换为字典
-    dict_info = yaml.safe_load(yaml_str)
+    dict_info = yaml.safe_load(yaml_str.group(1))
     return dict_info
 
 
@@ -146,7 +148,8 @@ def git_func_main():
         new_item["issues_title"] = item["title"]
         new_item["issues_url"] = item["html_url"]
         new_item["issues_user"] = item["user"]["login"]
-        new_item["note_data"] = [extract_info(item["body"])]
+        note_info = extract_info(item["body"])
+        new_item["note_data"] = [] if not note_info else [note_info]
         # 抓取 issue comments
         comments = git_func_issues(item["comments_url"])
         if "error" in comments.keys() and comments["error"]:
@@ -160,7 +163,10 @@ def git_func_main():
         for comment in comments:
             # 评论用户必须是 issues 用户
             if comment["user"]["login"] == item["user"]["login"]:
-                new_item["note_data"].append(extract_info(comment["body"]))
+                note_info = extract_info(comment["body"])
+                if not note_info:
+                    continue
+                new_item["note_data"].append(note_info)
         # 计数
         new_item["note_count"] = len(new_item["note_data"])
         # 保存数据到文件
