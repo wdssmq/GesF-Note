@@ -5,7 +5,7 @@ import inspect
 import requests
 # import json
 
-from bin.base import fnErr, fnLog
+from bin.base import fnErr
 
 
 def http(req_arg=None, data_arg=None, json_arg=None, headers_arg=None):
@@ -64,7 +64,7 @@ def http_git_check(res_data):
 
 def http_git_events(user="", token=""):
     """获取 events 列表"""
-    url = f"https://api.github.com/users/{user}/events/public"
+    url = f"https://api.github.com/users/{user}/events/public?per_page=100"
     headers = http_git_headers(token)
     res_data = http({"url": url, "method": "get"}, headers_arg=headers)
     return http_git_check(res_data.json())
