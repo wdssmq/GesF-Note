@@ -91,6 +91,7 @@ def git_func_main():
         fnBug(issues["message"], inspect.currentframe().f_lineno)
         fnBug(issues["data"])
         return
+    issues = issues["data"]
     # 筛选数据
     items = filter_issues(issues)
     # 对于每个 issue，提取信息
@@ -102,6 +103,11 @@ def git_func_main():
         new_item["note_data"] = [extract_info(item["body"])]
         # 抓取 issue comments
         comments = git_func_issues(item["comments_url"])
+        if "error" in comments.keys() and comments["error"]:
+            fnBug(comments["message"], inspect.currentframe().f_lineno)
+            fnBug(comments["data"])
+            continue
+        comments = comments["data"]
         # 筛选数据
         comments = filter_issues(comments, "comments")
         # 对于每个 issue comment，提取信息

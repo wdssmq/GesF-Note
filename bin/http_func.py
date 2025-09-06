@@ -51,19 +51,17 @@ def http_git_headers(token=""):
 
 def http_git_check(res_data):
     """判断抓取信息是否报错"""
-    # 报错信息变量
+    # 检查 dict 类型的返回值
     error_message = ""
-    if "status" in res_data.keys():
-        # 如果状态不是 200
+    if isinstance(res_data, dict) and "status" in res_data.keys():
         if res_data["status"] != 200:
-            error_message =  res_data["message"]
-    else:
-        # 如果没有 status 字段
-        error_message = "未知错误"
-    # 连带原始数据一起返回
+            error_message = res_data.get("message", "未知错误")
+
     if error_message != "":
         return {"error": True, "message": error_message, "data": res_data}
+
     return {"error": False, "data": res_data}
+
 
 
 def http_git_issues(labels="pick", repo="", token=""):
@@ -78,7 +76,6 @@ def http_git_issues_comments(comments_url, token=""):
     url = comments_url
     headers = http_git_headers(token)
     res_data = http({"url": url, "method": "get"}, headers_arg=headers)
-    fnLog(res_data, inspect.currentframe().f_lineno)
     return http_git_check(res_data.json())
 
 
