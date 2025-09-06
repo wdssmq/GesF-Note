@@ -27,6 +27,7 @@ jobs:
           PICK_LABEL: ${{ secrets.PICK_LABEL }}
           GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_REPO: ${{ github.repository }}
+          GIT_USER: ${{ github.repository_owner }}
         run: |
           pip install pyyaml requests
           python3 main.py

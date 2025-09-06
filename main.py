@@ -30,6 +30,9 @@ def init():
         if os.environ["GIT_TOKEN"]:
             config_info["GIT_TOKEN"] = os.environ["GIT_TOKEN"]
 
+        if os.environ["GIT_USER"]:
+            config_info["GIT_USER"] = os.environ["GIT_USER"]
+
         if os.environ["PICK_LABEL"]:
             config_info["PICK_LABEL"] = os.environ["PICK_LABEL"]
 
@@ -54,10 +57,10 @@ def init():
     if debug_info["debug"]:
         config_info["DATA_PATH"] = os.path.join(os.getcwd(), "dev_data/")
         config_info["MD_PATH"] = os.path.join(os.getcwd(), "dev_data/")
-        fnLog(
-                "config 内拥有以下值: %s" % str(config_info.keys()),
-                inspect.currentframe().f_lineno,
-        )
+    fnLog(
+            "config 内拥有以下值: %s" % str(config_info.keys()),
+            inspect.currentframe().f_lineno,
+    )
 
 
 # 初始化调用
