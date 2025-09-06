@@ -45,16 +45,17 @@ def git_func_issues_details(list_data, list_type="issues"):
     return list_result
 
 
-# 从 issue 的 body 中提取信息
-def extract_info(body):
+# 从 issue 的 body 中提取信息并合并到字典
+def extract_and_append_info(body, info_dict):
     """从 issue 的 body 中提取信息"""
     # 匹配 ```yml ... ``` 中的内容
     yaml_str = re.search(r"```yml(.*?)```", body, re.S)
     if not yaml_str:
-        return {}
+        return info_dict
     # 将 yaml 字符串转换为字典
-    dict_info = yaml.safe_load(yaml_str.group(1))
-    return dict_info
+    note_info = yaml.safe_load(yaml_str.group(1))
+    info_dict.append(note_info)
+    return info_dict
 
 
 # 保存数据到文件
@@ -83,8 +84,7 @@ def parse_and_save_issues_details():
         new_item["issues_title"] = issue["title"]
         new_item["issues_url"] = issue["html_url"]
         new_item["issues_user"] = issue["user"]["login"]
-        note_info = extract_info(issue["body"])
-        new_item["note_data"] = [] if not note_info else [note_info]
+        new_item["note_data"] = extract_and_append_info(issue["body"], [])
         # 抓取 issue comments
         comments = git_func_issues(issue["comments_url"])
         # 筛选数据
@@ -93,10 +93,7 @@ def parse_and_save_issues_details():
         for comment in comments:
             # 评论用户必须是 issues 用户
             if comment["user"]["login"] == issue["user"]["login"]:
-                note_info = extract_info(comment["body"])
-                if not note_info:
-                    continue
-                new_item["note_data"].append(note_info)
+                new_item["note_data"] = extract_and_append_info(comment["body"], new_item["note_data"])
         # 计数
         new_item["note_count"] = len(new_item["note_data"])
         # 保存数据到文件
