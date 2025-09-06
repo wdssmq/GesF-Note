@@ -62,6 +62,12 @@ def http_git_check(res_data):
 
     return {"error": False, "data": res_data}
 
+def http_git_events(user="", token=""):
+    """获取 events 列表"""
+    url = f"https://api.github.com/users/{user}/events/public"
+    headers = http_git_headers(token)
+    res_data = http({"url": url, "method": "get"}, headers_arg=headers)
+    return http_git_check(res_data.json())
 
 
 def http_git_issues(labels="pick", repo="", token=""):

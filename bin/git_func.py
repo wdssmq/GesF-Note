@@ -7,7 +7,7 @@ import yaml
 
 from bin.base import fnBug
 from bin.md_func import save_md
-from bin.http_func import http_git_issues, http_git_issues_comments
+from bin.http_func import http_git_issues, http_git_issues_comments, http_git_events
 
 # 全局变量
 config_info = {}
@@ -22,6 +22,53 @@ def git_func_init(config, debug):
     config_info = config
     debug_info = debug
 
+
+def git_func_events():
+    """获取 events 列表"""
+    res = http_git_events(config_info["GIT_USER"], config_info["GIT_TOKEN"])
+    if "error" in res.keys() and res["error"]:
+        fnBug(res["message"], inspect.currentframe().f_lineno)
+        fnBug(res["data"])
+        return []
+    return res["data"]
+
+
+def git_func_event_details(event_list):
+    """获取 event 详情"""
+    # 定义一个函数，用于提取提交信息
+    def extract_commit_info(payload):
+        commits = []
+        if "commits" not in payload.keys():
+            return commits
+        for commit in payload["commits"]:
+            commits.append({
+                "message": commit.get("message", ""),
+            })
+        return commits
+
+    details = []
+    for event in event_list:
+        event_type = event.get("type", "")
+        if event_type != "PushEvent":
+            continue
+        event_id = event.get("id", "")
+        event_repo = event.get("repo", {}).get("name", "")
+        details.append({
+            "id": event_id,
+            "type": event_type,
+            "repo": event_repo,
+            "commits": extract_commit_info(event.get("payload", {})),
+        })
+    return details
+
+def save_event_details(details):
+    """保存 event 详情到文件"""
+    file_name = 'github_events.json'
+    file_path = config_info["DATA_PATH"] + file_name
+    # 保存到文件
+    with open(file_path, "w", encoding="utf-8") as file:
+        json.dump(details, file, ensure_ascii=False, indent=4)
+    fnBug(f"保存文件：{file_path}", inspect.currentframe().f_lineno)
 
 # 抓取 issues 或 issue comments 封装
 def git_func_issues(comments_url=None):
@@ -41,7 +88,6 @@ pick_keys_info = {
     "issues": ["url", "html_url", "title", "body", "comments_url", "user"],
     "comments": ["url", "html_url", "body", "user"],
 }
-
 
 # 选出需要的字段
 def filter_issues(list_data, list_type="issues"):
