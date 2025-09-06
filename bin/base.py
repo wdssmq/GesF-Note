@@ -47,9 +47,9 @@ def fnLog(msg="", tip=None, log_type=""):
 # 输出信息
 
 
-def fnBug(msg, tip=None, debug=True):
+def fnBug(msg, tip=None):
     """ 调试信息输出 """
-    if debug:
+    if debug_info["debug"]:
         fnLog(msg, tip, "[debug]")
 # 调试信息输出
 

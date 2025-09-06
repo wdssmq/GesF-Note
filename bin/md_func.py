@@ -88,4 +88,4 @@ def save_md(data, md_path, debug=False):
     # 保存到文件
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(md_content)
-    fnBug(f"保存文件：{file_path}", inspect.currentframe().f_lineno, debug)
+    fnBug(f"保存文件：{file_path}", inspect.currentframe().f_lineno)
