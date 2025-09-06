@@ -86,6 +86,11 @@ def git_func_main():
     """主入口函数"""
     # 抓取 issues
     issues = git_func_issues()
+    # 检查错误
+    if "error" in issues.keys() and issues["error"]:
+        fnBug(issues["message"], inspect.currentframe().f_lineno)
+        fnBug(issues["data"])
+        return
     # 筛选数据
     items = filter_issues(issues)
     # 对于每个 issue，提取信息
