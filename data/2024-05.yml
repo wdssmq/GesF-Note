@@ -1,7 +1,8 @@
+comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/3/comments
 issues_title: 2024-05
 issues_url: https://github.com/wdssmq/GesF-Note/issues/3
 issues_user: wdssmq
-note_count: 7
+note_count: 10
 note_data:
 - Desc: 具体列举了三种实现 PHP 网站开发时自动刷新网页的方法，也并不局限于 Z-BlogPHP；
   Image: null
@@ -55,3 +56,21 @@ note_data:
   Title: GitHub - wdssmq/php-nginx-dc
   Type: 代码
   Url: https://github.com/wdssmq/php-nginx-dc
+- Desc: 用来记录各种折腾的东西，代码，文章或视频什么的丨大概可以理解为「咸鱼速报」…
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/GesF-Note
+  Type: 代码
+  Url: https://github.com/wdssmq/GesF-Note
+- Desc: 各种「GM_脚本」
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/userscript
+  Type: 代码
+  Url: https://github.com/wdssmq/userscript
+- Desc: AI 提示词管理及构建工具，注重碎片化拼接及复用。
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/AI-Jumon
+  Type: 代码
+  Url: https://github.com/wdssmq/AI-Jumon

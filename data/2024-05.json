@@ -2,6 +2,7 @@
     "issues_title": "2024-05",
     "issues_url": "https://github.com/wdssmq/GesF-Note/issues/3",
     "issues_user": "wdssmq",
+    "comments_url": "https://api.github.com/repos/wdssmq/GesF-Note/issues/3/comments",
     "note_data": [
         {
             "Title": "「水坑」开发 Z-BlogPHP 应用时实现自动刷新网页",
@@ -65,7 +66,31 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/php-nginx-dc"
+        },
+        {
+            "Title": "GitHub - wdssmq/GesF-Note",
+            "Desc": "用来记录各种折腾的东西，代码，文章或视频什么的丨大概可以理解为「咸鱼速报」…",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/GesF-Note"
+        },
+        {
+            "Title": "GitHub - wdssmq/userscript",
+            "Desc": "各种「GM_脚本」",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/userscript"
+        },
+        {
+            "Title": "GitHub - wdssmq/AI-Jumon",
+            "Desc": "AI 提示词管理及构建工具，注重碎片化拼接及复用。",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/AI-Jumon"
         }
     ],
-    "note_count": 7
+    "note_count": 10
 }
