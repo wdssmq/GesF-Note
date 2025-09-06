@@ -85,8 +85,8 @@ def http_git_issues_comments(comments_url, token=""):
     return http_git_check(res_data.json())
 
 
-def http_git_edt_issue(url, data, token=""):
-    """编辑 issue"""
+def http_git_create_comment(comments_url, comment, token):
     headers = http_git_headers(token)
-    res_data = http({"url": url, "method": "patch"}, json_arg=data, headers_arg=headers)
-    fnLog(res_data.json(), inspect.currentframe().f_lineno)
+    data = {"body": comment}
+    res_data = http({"url": comments_url, "method": "post"}, json_arg=data, headers_arg=headers)
+    return http_git_check(res_data.json())
