@@ -1,4 +1,4 @@
-""" 主入口函数 """
+"""主入口函数"""
 
 import os
 import json
@@ -58,10 +58,7 @@ def init():
     # 读取 debug 配置
     if "DEBUG" in config_info.keys() and config_info["DEBUG"]:
         debug_info["debug"] = True
-        fnBug(
-            "debug 已开启: %s" % debug_info["debug"],
-            inspect.currentframe().f_lineno
-        )
+        fnBug("debug 已开启: %s" % debug_info["debug"], inspect.currentframe().f_lineno)
 
     if debug_info["debug"]:
         config_info["DATA_PATH"] = os.path.join(os.getcwd(), "dev_data/")
