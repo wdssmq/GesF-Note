@@ -9,12 +9,8 @@ import inspect
 # import time
 
 # 从 bin/base.py 中导入通用函数
-from bin.base import fnInit, fnBug, fnLog
+from bin.base import config_info, debug_info, fnInit, fnBug, fnLog
 from bin.git_func import git_func_main
-
-# 全局变量
-config_info = {}
-debug_info = {"debug": False, "log": ""}
 
 # pylint: disable=global-statement,consider-using-f-string
 
@@ -40,11 +36,6 @@ def init():
     except KeyError:
         fnLog("无法获 github 的 secrets 配置信息，开始使用本地变量")
 
-    fnLog(
-        "config 内拥有以下值: %s" % str(config_info.keys()),
-        inspect.currentframe().f_lineno,
-    )
-
     # 读取配置文件
     if os.path.exists("dev_config.json") is True:
         with open("dev_config.json", "rb") as config_file:
@@ -63,10 +54,14 @@ def init():
     if debug_info["debug"]:
         config_info["DATA_PATH"] = os.path.join(os.getcwd(), "dev_data/")
         config_info["MD_PATH"] = os.path.join(os.getcwd(), "dev_data/")
+        fnLog(
+                "config 内拥有以下值: %s" % str(config_info.keys()),
+                inspect.currentframe().f_lineno,
+        )
 
 
 # 初始化调用
 init()
-
+# 将配置传递给全局变量
 fnInit(config_info, debug_info)
 git_func_main()
