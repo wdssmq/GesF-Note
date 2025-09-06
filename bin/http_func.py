@@ -49,20 +49,37 @@ def http_git_headers(token=""):
     return headers
 
 
+def http_git_check(res_data):
+    """判断抓取信息是否报错"""
+    # 报错信息变量
+    error_message = ""
+    if "status" in res_data.keys():
+        # 如果状态不是 200
+        if res_data["status"] != 200:
+            error_message =  res_data["message"]
+    else:
+        # 如果没有 status 字段
+        error_message = "未知错误"
+    # 连带原始数据一起返回
+    if error_message != "":
+        return {"error": True, "message": error_message, "data": res_data}
+    return {"error": False, "data": res_data}
+
+
 def http_git_issues(labels="pick", repo="", token=""):
     """获取 issues 列表"""
     url = f"https://api.github.com/repos/{repo}/issues?labels={labels}"
     headers = http_git_headers(token)
     res_data = http({"url": url, "method": "get"}, headers_arg=headers)
-    return res_data.json()
+    return http_git_check(res_data.json())
 
 def http_git_issues_comments(comments_url, token=""):
     """获取 issue comments 列表"""
     url = comments_url
     headers = http_git_headers(token)
     res_data = http({"url": url, "method": "get"}, headers_arg=headers)
-
-    return res_data.json()
+    fnLog(res_data, inspect.currentframe().f_lineno)
+    return http_git_check(res_data.json())
 
 
 def http_git_edt_issue(url, data, token=""):
