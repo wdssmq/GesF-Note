@@ -9,8 +9,8 @@ import inspect
 # import time
 
 # 从 bin/base.py 中导入通用函数
-from bin.base import fnBug, fnLog
-from bin.git_func import git_func_init, git_func_main
+from bin.base import fnInit, fnBug, fnLog
+from bin.git_func import git_func_main
 
 # 全局变量
 config_info = {}
@@ -71,5 +71,5 @@ def init():
 # 初始化调用
 init()
 
-git_func_init(config_info, debug_info)
+fnInit(config_info, debug_info)
 git_func_main()

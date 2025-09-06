@@ -4,6 +4,19 @@ import time
 
 # pylint: disable=invalid-name
 
+
+# 全局变量
+config_info = {}
+debug_info = {"debug": False, "log": ""}
+
+# pylint: disable=global-statement
+
+
+def fnInit(config, debug):
+    """初始化"""
+    config_info.update(config)
+    debug_info.update(debug)
+
 def fnEmpty(arg):
     """ 占位空函数，用来应对 unused-variable """
     # 返回 arg 的值
