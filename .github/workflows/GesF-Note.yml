@@ -2,14 +2,14 @@ name: GesF-Note
 on:
   issue_comment:
     types: [created, deleted, edited]
-  push:
-    branches:
-      - main
+#   push:
+#     branches:
+#       - main
   workflow_dispatch:
 
 jobs:
   def:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
     steps:

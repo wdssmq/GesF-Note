@@ -5,8 +5,21 @@
 ## 安装依赖
 
 ```bash
+
+# 项目根目录下
+python3 -m venv .venv
+
+# 激活虚拟环境 - Git Bash
+source .venv/Scripts/activate
+
+# 或者用 Windows 命令行
+.venv\Scripts\activate
+
+# 安装依赖
 pip install PyYAML
 pip install requests
+
+python main.py
 
 ```
 
