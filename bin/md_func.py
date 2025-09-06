@@ -1,4 +1,5 @@
-""" markdown 生成函数 """
+"""markdown 生成函数"""
+
 import inspect
 import re
 
@@ -53,7 +54,7 @@ def ubb_link(text):
 
 
 # 保存为 md 文件
-def save_md(data, md_path, debug=False):
+def save_md(data, md_path):
     """保存为 md 文件"""
     file_name = data["issues_title"].replace(" ", "_") + ".md"
     file_path = md_path + file_name

@@ -58,8 +58,8 @@ def init():
         config_info["DATA_PATH"] = os.path.join(os.getcwd(), "dev_data/")
         config_info["MD_PATH"] = os.path.join(os.getcwd(), "dev_data/")
     fnLog(
-            "config 内拥有以下值: %s" % str(config_info.keys()),
-            inspect.currentframe().f_lineno,
+        "config 内拥有以下值: %s" % str(config_info.keys()),
+        inspect.currentframe().f_lineno,
     )
 
 

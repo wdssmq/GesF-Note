@@ -92,4 +92,3 @@ def process_json_files():
             break
 
     construct_and_post_comment(issues_data, events_data)
-

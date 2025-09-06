@@ -33,6 +33,7 @@ pick_keys_info = {
     "comments": ["url", "html_url", "body", "user"],
 }
 
+
 # 选出需要的字段
 def git_func_issues_details(list_data, list_type="issues"):
     """选出需要的字段"""
@@ -93,11 +94,16 @@ def parse_and_save_issues_details():
         # 对于每个 issue comment，提取信息
         for comment in comments:
             # 评论用户必须是 issues 用户
-            if comment["user"]["login"] == issue["user"]["login"] or "github-actions[bot]" == comment["user"]["login"]:
-                new_item["note_data"] = extract_and_append_info(comment["body"], new_item["note_data"])
+            if (
+                comment["user"]["login"] == issue["user"]["login"]
+                or "github-actions[bot]" == comment["user"]["login"]
+            ):
+                new_item["note_data"] = extract_and_append_info(
+                    comment["body"], new_item["note_data"]
+                )
         # 计数
         new_item["note_count"] = len(new_item["note_data"])
         # 保存数据到文件
         save_data(new_item, "yml")
         save_data(new_item, "json")
-        save_md(new_item, config_info["MD_PATH"], debug_info["debug"])
+        save_md(new_item, config_info["MD_PATH"])
