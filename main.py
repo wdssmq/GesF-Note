@@ -60,8 +60,7 @@ def init():
         debug_info["debug"] = True
         fnBug(
             "debug 已开启: %s" % debug_info["debug"],
-            inspect.currentframe().f_lineno,
-            debug_info["debug"],
+            inspect.currentframe().f_lineno
         )
 
     if debug_info["debug"]:

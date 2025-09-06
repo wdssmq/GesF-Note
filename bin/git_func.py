@@ -77,7 +77,7 @@ def save_data(data, file_type="yml"):
         elif file_type == "json":
             json.dump(data, file, ensure_ascii=False, indent=4)
     fnBug(
-        f"保存文件：{file_path}", inspect.currentframe().f_lineno, debug_info["debug"]
+        f"保存文件：{file_path}", inspect.currentframe().f_lineno
     )
 
 
@@ -114,4 +114,4 @@ def git_func_main():
         # 保存数据到文件
         save_data(new_item, "yml")
         save_data(new_item, "json")
-        save_md(new_item, config_info["MD_PATH"], debug_info["debug"])
+        save_md(new_item, config_info["MD_PATH"])
