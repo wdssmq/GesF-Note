@@ -2,7 +2,7 @@ comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/3/comments
 issues_title: 2024-05
 issues_url: https://github.com/wdssmq/GesF-Note/issues/3
 issues_user: wdssmq
-note_count: 10
+note_count: 11
 note_data:
 - Desc: 具体列举了三种实现 PHP 网站开发时自动刷新网页的方法，也并不局限于 Z-BlogPHP；
   Image: null
@@ -74,3 +74,9 @@ note_data:
   Title: GitHub - wdssmq/AI-Jumon
   Type: 代码
   Url: https://github.com/wdssmq/AI-Jumon
+- Desc: 研究 electron 的使用和开发；
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/electron-demo
+  Type: 代码
+  Url: https://github.com/wdssmq/electron-demo

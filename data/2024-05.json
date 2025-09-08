@@ -90,7 +90,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/AI-Jumon"
+        },
+        {
+            "Title": "GitHub - wdssmq/electron-demo",
+            "Desc": "研究 electron 的使用和开发；",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/electron-demo"
         }
     ],
-    "note_count": 10
+    "note_count": 11
 }
