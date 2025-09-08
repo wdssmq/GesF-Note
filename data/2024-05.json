@@ -114,7 +114,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/AI-Prompt-Generator"
+        },
+        {
+            "Title": "GitHub - wdssmq/wubi86_double_key",
+            "Desc": "rime 手机输入法（同文安卓输入法），五笔 86 双键输入方案，仿触宝 T+ 键盘。",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/wubi86_double_key"
         }
     ],
-    "note_count": 13
+    "note_count": 14
 }
