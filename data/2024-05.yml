@@ -2,7 +2,7 @@ comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/3/comments
 issues_title: 2024-05
 issues_url: https://github.com/wdssmq/GesF-Note/issues/3
 issues_user: wdssmq
-note_count: 12
+note_count: 13
 note_data:
 - Desc: 具体列举了三种实现 PHP 网站开发时自动刷新网页的方法，也并不局限于 Z-BlogPHP；
   Image: null
@@ -86,3 +86,9 @@ note_data:
   Title: GitHub - wdssmq/Markdown-To-Z-Blog
   Type: 代码
   Url: https://github.com/wdssmq/Markdown-To-Z-Blog
+- Desc: 一个基于 YAML 配置的 AI 提示词生成工具，支持变量替换和随机选择功能。
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/AI-Prompt-Generator
+  Type: 代码
+  Url: https://github.com/wdssmq/AI-Prompt-Generator
