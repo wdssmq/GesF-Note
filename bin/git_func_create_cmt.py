@@ -86,7 +86,7 @@ def process_json_files():
             continue
         else:
             cur_data = parse_json_file(json_file["file_path"])
-            if cur_data["note_count"] < 14:
+            if cur_data["note_count"] + 1 <= config_info["MAX_NOTES"]:
                 issues_data = cur_data
         if issues_data and events_data:
             break

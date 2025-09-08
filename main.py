@@ -48,6 +48,8 @@ def init():
     config_info["DATA_PATH"] = os.path.join(os.getcwd(), "data/")
     # md 路径
     config_info["MD_PATH"] = os.path.join(os.getcwd(), "blog-astro/src/content/blog/")
+    # 最大评论数
+    config_info["MAX_NOTES"] = 14
 
     # 读取 debug 配置
     if "DEBUG" in config_info.keys() and config_info["DEBUG"]:
