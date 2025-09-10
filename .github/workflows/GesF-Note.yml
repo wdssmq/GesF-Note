@@ -2,6 +2,8 @@ name: GesF-Note
 on:
   issue_comment:
     types: [created, deleted, edited]
+  schedule:
+    - cron: "0 0 */4 * *"
 #   push:
 #     branches:
 #       - main
