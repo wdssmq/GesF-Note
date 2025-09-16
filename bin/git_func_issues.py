@@ -50,7 +50,7 @@ def git_func_issues_details(list_data, list_type="issues"):
 def extract_and_append_info(body, info_dict):
     """从 issue 的 body 中提取信息"""
     # 匹配 ```yml ... ``` 中的内容
-    yaml_str = re.search(r"```yml(.*?)```", body, re.S)
+    yaml_str = re.search(r"```ya?ml(.*?)```", body, re.S)
     if not yaml_str:
         return info_dict
     # 将 yaml 字符串转换为字典
