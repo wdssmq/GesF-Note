@@ -43,7 +43,23 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/Markdown-To-Z-Blog"
+        },
+        {
+            "Title": "GitHub - wdssmq/AI-Jumon",
+            "Desc": "AI 提示词管理及构建工具，注重碎片化拼接及复用。",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/AI-Jumon"
+        },
+        {
+            "Title": "GitHub - wdssmq/electron-demo",
+            "Desc": "研究 electron 的使用和开发；",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/electron-demo"
         }
     ],
-    "note_count": 5
+    "note_count": 7
 }
