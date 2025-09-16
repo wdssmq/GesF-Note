@@ -4,13 +4,11 @@ import os
 import time
 
 # pylint: disable=invalid-name
-
+# pylint: disable=global-statement
 
 # 全局变量
 config_info = {}
 debug_info = {"debug": False, "log": ""}
-
-# pylint: disable=global-statement
 
 
 def fnInit(config, debug):
@@ -23,9 +21,6 @@ def fnEmpty(arg):
     """占位空函数，用来应对 unused-variable"""
     # 返回 arg 的值
     return arg
-
-
-# 占位空函数，用来应对 unused-variable
 
 
 def fnLog(msg="", tip=None, log_type=""):
@@ -50,16 +45,10 @@ def fnLog(msg="", tip=None, log_type=""):
         print(f"_{log_type}{msg}{tip}")
 
 
-# 输出信息
-
-
 def fnBug(msg, tip=None):
     """调试信息输出"""
     if debug_info["debug"]:
         fnLog(msg, tip, "[debug]")
-
-
-# 调试信息输出
 
 
 def fnErr(msg, tip=None):
@@ -67,15 +56,9 @@ def fnErr(msg, tip=None):
     fnLog(msg, tip, "_[err]")
 
 
-# 错误信息
-
-
 def fnGetTimeStr(time_stamp):
     """时间戳转换"""
     return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time_stamp))
-
-
-# 时间戳转换
 
 
 def fnGetDirsInDir(path):
@@ -83,15 +66,9 @@ def fnGetDirsInDir(path):
     return [x for x in os.listdir(path) if os.path.isdir(x)]
 
 
-# 获取子文件夹
-
-
 def fnGetFilesInDir(path):
     """获取文件夹中的文件"""
     return [x for x in os.listdir(path) if not os.path.isdir(x)]
-
-
-# 获取文件夹中的文件
 
 
 def fnGetFilesInDir2(path, ext):
@@ -103,14 +80,8 @@ def fnGetFilesInDir2(path, ext):
     ]
 
 
-# 获取指定后缀的文件
-
-
 def fnGetFileTime(file):
     """获取文件时间"""
     mtime = os.stat(file).st_mtime  # 文件的修改时间
     ctime = os.stat(file).st_ctime  # 文件的创建时间
     return (int(mtime), int(ctime))
-
-
-# 获取文件时间
