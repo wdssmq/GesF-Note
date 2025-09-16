@@ -85,3 +85,13 @@ def fnGetFileTime(file):
     mtime = os.stat(file).st_mtime  # 文件的修改时间
     ctime = os.stat(file).st_ctime  # 文件的创建时间
     return (int(mtime), int(ctime))
+
+# 生成一个函数，用于保存远程内容到指定的路径，参数为 文本，文件名，保存路径
+def fnSaveContentToPath(text, filename, path=None):
+    """保存远程内容到指定的路径"""
+    if not debug_info["debug"]:
+        return
+    if not path:
+        path = config_info['DATA_PATH']
+    with open(os.path.join(path, filename), 'w', encoding='utf-8') as f:
+        f.write(text)
