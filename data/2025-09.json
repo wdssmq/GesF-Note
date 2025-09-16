@@ -5,6 +5,14 @@
     "comments_url": "https://api.github.com/repos/wdssmq/GesF-Note/issues/4/comments",
     "note_data": [
         {
+            "Title": "TortoiseGit 修改多条历史提交（commit message）",
+            "Desc": "虽然我知道可以命令行完成。。小众的软件+小众的使用姿势什么的。。",
+            "Source": "[url=https://space.bilibili.com/44744006]沉冰浮水@bilibili[/url]",
+            "Tags": "哔哩哔哩",
+            "Type": "视频",
+            "Url": "https://www.bilibili.com/video/BV1M2tbzQErt"
+        },
+        {
             "Title": "GitHub - wdssmq/GesF-Note",
             "Desc": "用来记录各种折腾的东西，代码，文章或视频什么的丨大概可以理解为「咸鱼速报」…",
             "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
@@ -19,7 +27,23 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/FoamTest"
+        },
+        {
+            "Title": "GitHub - wdssmq/userscript",
+            "Desc": "各种「GM_脚本」",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/userscript"
+        },
+        {
+            "Title": "GitHub - wdssmq/Markdown-To-Z-Blog",
+            "Desc": "使用 GitHub Actions + Markdown 更新 Z-Blog 博客。#md2zb",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/Markdown-To-Z-Blog"
         }
     ],
-    "note_count": 2
+    "note_count": 5
 }
