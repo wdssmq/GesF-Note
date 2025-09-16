@@ -3,7 +3,7 @@
 import inspect
 import re
 
-from bin.base import fnBug
+from bin.base import config_info, fnBug
 
 md_head_tpl = """---
 title: {title}
@@ -56,6 +56,9 @@ def ubb_link(text):
 # 保存为 md 文件
 def save_md(data, md_path):
     """保存为 md 文件"""
+    if data["note_count"] < config_info["MAX_NOTES"]:
+        fnBug("没有达到最大评论数，不进行保存", inspect.currentframe().f_lineno)
+        return
     file_name = data["issues_title"].replace(" ", "_") + ".md"
     file_path = md_path + file_name
     # 从 data["issues_title"] 中提取年份
