@@ -59,7 +59,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/electron-demo"
+        },
+        {
+            "Title": "GitHub - wdssmq/AI-Prompt-Generator",
+            "Desc": "一个基于 YAML 配置的 AI 提示词生成工具，支持变量替换和随机选择功能。",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/AI-Prompt-Generator"
         }
     ],
-    "note_count": 7
+    "note_count": 8
 }
