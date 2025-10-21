@@ -67,7 +67,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/AI-Prompt-Generator"
+        },
+        {
+            "Title": "GitHub - wdssmq/blog-hexo",
+            "Desc": "None",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/blog-hexo"
         }
     ],
-    "note_count": 8
+    "note_count": 9
 }
