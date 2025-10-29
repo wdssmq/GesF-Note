@@ -2,7 +2,7 @@ comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/4/comments
 issues_title: 2025-09
 issues_url: https://github.com/wdssmq/GesF-Note/issues/4
 issues_user: wdssmq
-note_count: 9
+note_count: 10
 note_data:
 - Desc: 虽然我知道可以命令行完成。。小众的软件+小众的使用姿势什么的。。
   Source: '[url=https://space.bilibili.com/44744006]沉冰浮水@bilibili[/url]'
@@ -58,3 +58,9 @@ note_data:
   Title: GitHub - wdssmq/blog-hexo
   Type: 代码
   Url: https://github.com/wdssmq/blog-hexo
+- Desc: None
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/pocketbase-demo
+  Type: 代码
+  Url: https://github.com/wdssmq/pocketbase-demo

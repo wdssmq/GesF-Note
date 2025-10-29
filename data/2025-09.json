@@ -75,7 +75,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/blog-hexo"
+        },
+        {
+            "Title": "GitHub - wdssmq/pocketbase-demo",
+            "Desc": "None",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/pocketbase-demo"
         }
     ],
-    "note_count": 9
+    "note_count": 10
 }
