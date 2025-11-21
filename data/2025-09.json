@@ -91,7 +91,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/L78Z-No-Code"
+        },
+        {
+            "Title": "GitHub - wdssmq/wdssmq",
+            "Desc": "关于`沉冰浮水`",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/wdssmq"
         }
     ],
-    "note_count": 11
+    "note_count": 12
 }
