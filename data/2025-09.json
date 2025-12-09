@@ -99,7 +99,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/wdssmq"
+        },
+        {
+            "Title": "GitHub - wdssmq/zbp-plugin-admin2",
+            "Desc": "None",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/zbp-plugin-admin2"
         }
     ],
-    "note_count": 12
+    "note_count": 13
 }
