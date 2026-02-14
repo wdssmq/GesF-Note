@@ -103,3 +103,11 @@ def http_git_create_comment(comments_url, comment, token):
         {"url": comments_url, "method": "post"}, json_arg=data, headers_arg=headers
     )
     return http_git_check(res_data.json())
+
+
+def http_git_create_issue(repo, title, body, labels, token):
+    url = f"https://api.github.com/repos/{repo}/issues"
+    headers = http_git_headers(token)
+    data = {"title": title, "body": body, "labels": labels}
+    res_data = http({"url": url, "method": "post"}, json_arg=data, headers_arg=headers)
+    return http_git_check(res_data.json())
