@@ -3,15 +3,26 @@
 import inspect
 import os
 import json
+from datetime import datetime
 
 from bin.base import config_info, fnBug, fnLog
-from bin.http_func import http_git_create_comment, http_git_repo
+from bin.http_func import http_git_create_comment, http_git_repo, http_git_create_issue
+
+
+# 封装 res 判断
+def check_response(res_info, lineno=-1):
+    """检查 HTTP 响应是否包含错误"""
+    if "error" in res_info.keys() and res_info["error"]:
+        fnBug(res_info["message"], lineno)
+        fnBug(res_info["data"])
+        return False
+    return True
 
 
 def construct_and_post_comment(issue_data, event_data):
-    """构造评论并发布到指定的 issue"""
-    if not issue_data or not event_data:
-        fnLog("No issue data or event data available.", inspect.currentframe().f_lineno)
+    """构造评论并发布到指定的 issue，必要时创建新 issue"""
+    if not event_data:
+        fnLog("No event data available.", inspect.currentframe().f_lineno)
         return
 
     tpl = """```yml
@@ -27,12 +38,12 @@ Url: {Url}
     for event in event_data:
         repo_url = f'https://github.com/{event["repo"]["name"]}'
         # 判断是否已经存在相同的 Url
-        if any(note.get("Url") == repo_url for note in issue_data.get("note_data", [])):
+        if issue_data and any(
+            note.get("Url") == repo_url for note in issue_data.get("note_data", [])
+        ):
             continue
         repo_info = http_git_repo(event["repo"]["name"], config_info["GIT_TOKEN"])
-        if "error" in repo_info.keys() and repo_info["error"]:
-            fnBug(repo_info["message"], inspect.currentframe().f_lineno)
-            fnBug(repo_info["data"])
+        if not check_response(repo_info, inspect.currentframe().f_lineno):
             continue
         repo_desc = repo_info["data"].get("description", "无描述")
         repo_title = repo_info["data"].get("full_name", "无标题")
@@ -42,14 +53,24 @@ Url: {Url}
             "Desc": repo_desc,
             "Url": repo_url,
         }
-        comment = tpl.format(**note_info)
-        res = http_git_create_comment(
-            issue_data["comments_url"], comment, config_info["GIT_TOKEN"]
-        )
-        if "error" in res.keys() and res["error"]:
-            fnBug(res["message"], inspect.currentframe().f_lineno)
-            fnBug(res["data"])
-            continue
+        note_body = tpl.format(**note_info)
+        if issue_data and issue_data.get("comments_url"):
+            res = http_git_create_comment(
+                issue_data["comments_url"], note_body, config_info["GIT_TOKEN"]
+            )
+            if not check_response(res, inspect.currentframe().f_lineno):
+                continue
+        else:
+            issue_title = datetime.now().strftime("%Y-%m")
+            res = http_git_create_issue(
+                config_info["GIT_REPO"],
+                issue_title,
+                note_body,
+                [config_info["PICK_LABEL"]],
+                config_info["GIT_TOKEN"],
+            )
+            if not check_response(res, inspect.currentframe().f_lineno):
+                continue
         break
 
 
@@ -90,5 +111,4 @@ def process_json_files():
                 issues_data = cur_data
         if issues_data and events_data:
             break
-
     construct_and_post_comment(issues_data, events_data)
