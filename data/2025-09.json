@@ -101,14 +101,6 @@
             "Url": "https://github.com/wdssmq/wdssmq"
         },
         {
-            "Title": "GitHub - wdssmq/zbp-plugin-admin2",
-            "Desc": "None",
-            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
-            "Tags": "GitHub",
-            "Type": "代码",
-            "Url": "https://github.com/wdssmq/zbp-plugin-admin2"
-        },
-        {
             "Title": "GitHub - wdssmq/zblogphp18",
             "Desc": "新版本的 Z-BlogPHP",
             "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
@@ -117,5 +109,5 @@
             "Url": "https://github.com/wdssmq/zblogphp18"
         }
     ],
-    "note_count": 14
+    "note_count": 13
 }

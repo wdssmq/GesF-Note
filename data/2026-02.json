@@ -19,7 +19,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/bookmarks"
+        },
+        {
+            "Title": "GitHub - zblogcn/zblogphp",
+            "Desc": "Z-BlogPHP博客程序",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/zblogcn/zblogphp"
         }
     ],
-    "note_count": 2
+    "note_count": 3
 }
