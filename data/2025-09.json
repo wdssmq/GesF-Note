@@ -107,7 +107,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/zblogphp18"
+        },
+        {
+            "Title": "GitHub - wdssmq/bookmarks",
+            "Desc": "水水的书签收藏",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/bookmarks"
         }
     ],
-    "note_count": 13
+    "note_count": 14
 }
