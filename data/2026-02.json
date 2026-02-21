@@ -27,7 +27,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/zblogcn/zblogphp"
+        },
+        {
+            "Title": "GitHub - zblogcn/zblogphp18",
+            "Desc": "新版本的 Z-BlogPHP",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/zblogcn/zblogphp18"
         }
     ],
-    "note_count": 3
+    "note_count": 4
 }
