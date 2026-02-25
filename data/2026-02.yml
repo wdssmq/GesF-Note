@@ -2,7 +2,7 @@ comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/5/comments
 issues_title: 2026-02
 issues_url: https://github.com/wdssmq/GesF-Note/issues/5
 issues_user: wdssmq
-note_count: 4
+note_count: 5
 note_data:
 - Desc: 用来记录各种折腾的东西，代码，文章或视频什么的丨大概可以理解为「咸鱼速报」…
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -28,3 +28,9 @@ note_data:
   Title: GitHub - zblogcn/zblogphp18
   Type: 代码
   Url: https://github.com/zblogcn/zblogphp18
+- Desc: 新版本的 Z-BlogPHP
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/zblogphp18
+  Type: 代码
+  Url: https://github.com/wdssmq/zblogphp18
