@@ -43,7 +43,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/zblogphp18"
+        },
+        {
+            "Title": "GitHub - wdssmq/node-onebot-mz",
+            "Desc": "QQ 机器人 onebot 实现，基于 icqqjs/icqq",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/node-onebot-mz"
         }
     ],
-    "note_count": 5
+    "note_count": 6
 }
