@@ -51,7 +51,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/node-onebot-mz"
+        },
+        {
+            "Title": "GitHub - wdssmq/Just-Imgs",
+            "Desc": "对接 Cloudflare Worker + R2 使用的图床前端；Vite + Vue3",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/Just-Imgs"
         }
     ],
-    "note_count": 6
+    "note_count": 7
 }
