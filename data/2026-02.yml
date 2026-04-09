@@ -2,7 +2,7 @@ comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/5/comments
 issues_title: 2026-02
 issues_url: https://github.com/wdssmq/GesF-Note/issues/5
 issues_user: wdssmq
-note_count: 9
+note_count: 10
 note_data:
 - Desc: 用来记录各种折腾的东西，代码，文章或视频什么的丨大概可以理解为「咸鱼速报」…
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -58,3 +58,9 @@ note_data:
   Title: GitHub - wdssmq/wdssmq
   Type: 代码
   Url: https://github.com/wdssmq/wdssmq
+- Desc: rime 手机输入法（同文安卓输入法），五笔 86 双键输入方案，仿触宝 T+ 键盘。
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/wubi86_double_key
+  Type: 代码
+  Url: https://github.com/wdssmq/wubi86_double_key
