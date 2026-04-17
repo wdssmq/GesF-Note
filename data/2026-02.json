@@ -91,7 +91,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/Markdown-To-Z-Blog"
+        },
+        {
+            "Title": "GitHub - wdssmq/userscript",
+            "Desc": "各种「GM_脚本」",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/userscript"
         }
     ],
-    "note_count": 11
+    "note_count": 12
 }
