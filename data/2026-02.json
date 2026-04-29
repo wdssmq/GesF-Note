@@ -99,7 +99,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/userscript"
+        },
+        {
+            "Title": "GitHub - wdssmq/Z-BlogPHP-Color",
+            "Desc": "zbp 模板语法高亮（VSCode 插件）",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/Z-BlogPHP-Color"
         }
     ],
-    "note_count": 12
+    "note_count": 13
 }
