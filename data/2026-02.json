@@ -107,7 +107,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/Z-BlogPHP-Color"
+        },
+        {
+            "Title": "GitHub - wdssmq/L78Z-No-Code",
+            "Desc": "各种旧代码，虽然有些并没有很旧；",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/L78Z-No-Code"
         }
     ],
-    "note_count": 13
+    "note_count": 14
 }
