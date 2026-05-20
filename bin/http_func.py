@@ -1,15 +1,14 @@
 """HTTP 请求"""
 
 import sys
-import inspect
 import requests
 
 # import json
 
-from bin.base import fnErr
+from bin.base import fnErr, fnLineNo
 
 
-def http(req_arg=None, data_arg=None, json_arg=None, headers_arg=None):
+def http(req_arg={}, data_arg=None, json_arg=None, headers_arg=None):
     """HTTP 请求"""
     if data_arg is None:
         data_arg = {}
@@ -32,10 +31,10 @@ def http(req_arg=None, data_arg=None, json_arg=None, headers_arg=None):
                 url, data=data_arg, json=json_arg, headers=headers_arg, timeout=10
             )
         else:
-            fnErr("不支持的请求方法", inspect.currentframe().f_lineno)
+            fnErr("不支持的请求方法", fnLineNo())
             sys.exit(0)
     except KeyError:
-        fnErr("网络错误", inspect.currentframe().f_lineno)
+        fnErr("网络错误", fnLineNo())
         sys.exit(0)
 
     return res_info

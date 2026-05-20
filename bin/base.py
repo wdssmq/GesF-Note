@@ -2,6 +2,7 @@
 
 import os
 import time
+import inspect
 
 # pylint: disable=invalid-name
 # pylint: disable=global-statement
@@ -54,6 +55,14 @@ def fnBug(msg, tip=None):
 def fnErr(msg, tip=None):
     """错误信息"""
     fnLog(msg, tip, "_[err]")
+
+
+def fnLineNo(default=-1):
+    """安全地获取当前调用方代码行号"""
+    frame = inspect.currentframe()
+    if frame is None or frame.f_back is None:
+        return default
+    return frame.f_back.f_lineno
 
 
 def fnGetTimeStr(time_stamp):

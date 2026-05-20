@@ -1,9 +1,8 @@
 """markdown 生成函数"""
 
-import inspect
 import re
 
-from bin.base import config_info, fnBug
+from bin.base import config_info, fnBug, fnLineNo
 
 md_head_tpl = """---
 title: {title}
@@ -57,12 +56,16 @@ def ubb_link(text):
 def save_md(data, md_path):
     """保存为 md 文件"""
     if data["note_count"] < config_info["MAX_NOTES"]:
-        fnBug("没有达到最大评论数，不进行保存", inspect.currentframe().f_lineno)
+        fnBug("没有达到最大评论数，不进行保存", fnLineNo())
         return
     file_name = data["issues_title"].replace(" ", "_") + ".md"
     file_path = md_path + file_name
     # 从 data["issues_title"] 中提取年份
-    data["year"] = re.search(r"\d{4}", data["issues_title"]).group(0)
+    year_match = re.search(r"\d{4}", data["issues_title"])
+    if year_match is None:
+        fnBug("issues_title 未匹配到年份，跳过保存", fnLineNo())
+        return
+    data["year"] = year_match.group(0)
     # meta data
     meta_data = {
         "title": f"第 {data['issues_title']} 期",
@@ -92,4 +95,4 @@ def save_md(data, md_path):
     # 保存到文件
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(md_content)
-    fnBug(f"保存文件：{file_path}", inspect.currentframe().f_lineno)
+    fnBug(f"保存文件：{file_path}", fnLineNo())

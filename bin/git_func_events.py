@@ -1,9 +1,8 @@
 """GitHub Events 数据处理"""
 
-import inspect
 import json
 
-from bin.base import config_info, fnBug
+from bin.base import config_info, fnBug, fnLineNo
 from bin.http_func import http_git_events
 
 
@@ -11,7 +10,7 @@ def git_func_events():
     """获取 events 列表"""
     res = http_git_events(config_info["GIT_USER"], config_info["GIT_TOKEN"])
     if "error" in res.keys() and res["error"]:
-        fnBug(res["message"], inspect.currentframe().f_lineno)
+        fnBug(res["message"], fnLineNo())
         fnBug(res["data"])
         return []
     return res["data"]
@@ -63,7 +62,7 @@ def save_event_details(details):
     # 保存到文件
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(details, file, ensure_ascii=False, indent=4)
-    fnBug(f"保存文件：{file_path}", inspect.currentframe().f_lineno)
+    fnBug(f"保存文件：{file_path}", fnLineNo())
 
 
 # 解析并保存 event details
@@ -74,7 +73,7 @@ def parse_and_save_event_details():
     # 获取 event 详情
     details = git_func_event_details(events)
     if not details:
-        fnBug("未获取到 event 详情数据", inspect.currentframe().f_lineno)
+        fnBug("未获取到 event 详情数据", fnLineNo())
         return
     # 保存 event 详情到文件
     save_event_details(details)

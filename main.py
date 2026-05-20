@@ -2,14 +2,13 @@
 
 import os
 import json
-import inspect
 
 
 # import sys
 # import time
 
 # 从 bin/base.py 中导入通用函数
-from bin.base import config_info, debug_info, fnInit, fnBug, fnLog
+from bin.base import config_info, debug_info, fnInit, fnBug, fnLog, fnLineNo
 from bin.git_func import git_func_main
 
 # pylint: disable=global-statement,consider-using-f-string
@@ -54,14 +53,14 @@ def init():
     # 读取 debug 配置
     if "DEBUG" in config_info.keys() and config_info["DEBUG"]:
         debug_info["debug"] = True
-        fnBug("debug 已开启: %s" % debug_info["debug"], inspect.currentframe().f_lineno)
+        fnBug("debug 已开启: %s" % debug_info["debug"], fnLineNo())
 
     if debug_info["debug"]:
         config_info["DATA_PATH"] = os.path.join(os.getcwd(), "dev_data/")
         config_info["MD_PATH"] = os.path.join(os.getcwd(), "dev_data/")
     fnLog(
         "config 内拥有以下值: %s" % str(config_info.keys()),
-        inspect.currentframe().f_lineno,
+        fnLineNo(),
     )
 
 

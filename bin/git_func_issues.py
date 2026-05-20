@@ -1,11 +1,10 @@
 """GitHub Issues 数据处理"""
 
-import inspect
 import json
 import re
 import yaml
 
-from bin.base import config_info, debug_info, fnBug
+from bin.base import config_info, debug_info, fnBug, fnLineNo
 from bin.http_func import http_git_issues, http_git_issues_comments
 from bin.md_func import save_md
 
@@ -22,7 +21,7 @@ def git_func_issues(comments_url=None):
     else:
         res = http_git_issues_comments(comments_url, config_info["GIT_TOKEN"])
     if "error" in res.keys() and res["error"]:
-        fnBug(res["message"], inspect.currentframe().f_lineno)
+        fnBug(res["message"], fnLineNo())
         fnBug(res["data"])
         return []
     return res["data"]
@@ -70,7 +69,7 @@ def save_data(data, file_type="yml"):
             yaml.dump(data, file, allow_unicode=True)
         elif file_type == "json":
             json.dump(data, file, ensure_ascii=False, indent=4)
-    fnBug(f"保存文件：{file_path}", inspect.currentframe().f_lineno)
+    fnBug(f"保存文件：{file_path}", fnLineNo())
 
 
 def parse_and_save_issues_details():

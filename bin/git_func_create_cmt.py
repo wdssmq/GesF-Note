@@ -1,11 +1,10 @@
 """将 GitHub 仓库动态作为评论添加到指定的 issue 中"""
 
-import inspect
 import os
 import json
 from datetime import datetime
 
-from bin.base import config_info, fnBug, fnLog
+from bin.base import config_info, fnBug, fnLog, fnLineNo
 from bin.http_func import http_git_create_comment, http_git_repo, http_git_create_issue
 
 
@@ -22,7 +21,7 @@ def check_response(res_info, lineno=-1):
 def construct_and_post_comment(issue_data, event_data):
     """构造评论并发布到指定的 issue，必要时创建新 issue"""
     if not event_data:
-        fnLog("No event data available.", inspect.currentframe().f_lineno)
+        fnLog("No event data available.", fnLineNo())
         return
 
     tpl = """```yml
@@ -43,7 +42,7 @@ Url: {Url}
         ):
             continue
         repo_info = http_git_repo(event["repo"]["name"], config_info["GIT_TOKEN"])
-        if not check_response(repo_info, inspect.currentframe().f_lineno):
+        if not check_response(repo_info, fnLineNo()):
             continue
         repo_desc = repo_info["data"].get("description", "无描述")
         repo_title = repo_info["data"].get("full_name", "无标题")
@@ -58,7 +57,7 @@ Url: {Url}
             res = http_git_create_comment(
                 issue_data["comments_url"], note_body, config_info["GIT_TOKEN"]
             )
-            if not check_response(res, inspect.currentframe().f_lineno):
+            if not check_response(res, fnLineNo()):
                 continue
         else:
             issue_title = datetime.now().strftime("%Y-%m")
@@ -69,7 +68,7 @@ Url: {Url}
                 [config_info["PICK_LABEL"]],
                 config_info["GIT_TOKEN"],
             )
-            if not check_response(res, inspect.currentframe().f_lineno):
+            if not check_response(res, fnLineNo()):
                 continue
         break
 
