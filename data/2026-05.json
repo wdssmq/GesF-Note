@@ -67,7 +67,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/bookmarks"
+        },
+        {
+            "Title": "GitHub - wdssmq/GesF-Note",
+            "Desc": "用来记录各种折腾的东西，代码，文章或视频什么的丨大概可以理解为「咸鱼速报」…",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/GesF-Note"
         }
     ],
-    "note_count": 8
+    "note_count": 9
 }
