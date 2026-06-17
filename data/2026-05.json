@@ -83,7 +83,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/mz-tag-sort"
+        },
+        {
+            "Title": "GitHub - wdssmq/pocketbase-demo",
+            "Desc": "pocketbase 的 docker 部署示例 + 使用 JS SDK 进行连接操作；",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/pocketbase-demo"
         }
     ],
-    "note_count": 10
+    "note_count": 11
 }
