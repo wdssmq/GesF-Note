@@ -2,7 +2,7 @@ comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/6/comments
 issues_title: 2026-05
 issues_url: https://github.com/wdssmq/GesF-Note/issues/6
 issues_user: github-actions[bot]
-note_count: 11
+note_count: 12
 note_data:
 - Desc: 各种「GM_脚本」
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -70,3 +70,9 @@ note_data:
   Title: GitHub - wdssmq/pocketbase-demo
   Type: 代码
   Url: https://github.com/wdssmq/pocketbase-demo
+- Desc: 一个简单的 EXIF 信息查看器
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/mz-exif-viewer
+  Type: 代码
+  Url: https://github.com/wdssmq/mz-exif-viewer

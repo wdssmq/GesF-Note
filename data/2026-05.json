@@ -91,7 +91,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/pocketbase-demo"
+        },
+        {
+            "Title": "GitHub - wdssmq/mz-exif-viewer",
+            "Desc": "一个简单的 EXIF 信息查看器",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/mz-exif-viewer"
         }
     ],
-    "note_count": 11
+    "note_count": 12
 }
