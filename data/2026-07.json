@@ -19,7 +19,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/userscript"
+        },
+        {
+            "Title": "GitHub - wdssmq/rollup-plugin-monkey",
+            "Desc": "使用 rollup 开发「GM_脚本」",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/rollup-plugin-monkey"
         }
     ],
-    "note_count": 2
+    "note_count": 3
 }
