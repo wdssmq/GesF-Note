@@ -59,7 +59,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/GesF-Note"
+        },
+        {
+            "Title": "GitHub - wdssmq/Z-Blog-We",
+            "Desc": "你可以向本仓库提交你的 RSS 或 Z-Blog 应用（插件/主题）；",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/Z-Blog-We"
         }
     ],
-    "note_count": 7
+    "note_count": 8
 }
