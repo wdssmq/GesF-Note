@@ -91,7 +91,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/zblogcn/docs-zblogphp"
+        },
+        {
+            "Title": "GitHub - wdssmq/maupassant-hexo",
+            "Desc": "A simple Hexo theme forked from icylogic.",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/maupassant-hexo"
         }
     ],
-    "note_count": 11
+    "note_count": 12
 }
