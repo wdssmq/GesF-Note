@@ -2,7 +2,7 @@ comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/7/comments
 issues_title: 2026-07
 issues_url: https://github.com/wdssmq/GesF-Note/issues/7
 issues_user: github-actions[bot]
-note_count: 12
+note_count: 13
 note_data:
 - Desc: 关于`沉冰浮水`
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -76,3 +76,9 @@ note_data:
   Title: GitHub - wdssmq/maupassant-hexo
   Type: 代码
   Url: https://github.com/wdssmq/maupassant-hexo
+- Desc: 一些有关 Z-BlogPHP 的笔记
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: GitHub - wdssmq/zbp-note
+  Type: 代码
+  Url: https://github.com/wdssmq/zbp-note
