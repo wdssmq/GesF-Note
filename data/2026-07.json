@@ -107,7 +107,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/zbp-note"
+        },
+        {
+            "Title": "GitHub - wdssmq/zbp-app-pack",
+            "Desc": "一个用于将 Z-BlogPHP 应用（插件或主题）打包为 `.zba` 安装包的 GitHub Action。",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/zbp-app-pack"
         }
     ],
-    "note_count": 13
+    "note_count": 14
 }
