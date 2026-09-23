@@ -26,7 +26,7 @@ def build_note_body(note_info):
     )
 
 
-def construct_and_post_comment(issue_data, event_data):
+def construct_and_post_comment(issue_data, issues_data_prev, event_data):
     """构造评论并发布到指定的 issue，必要时创建新 issue"""
     if not event_data:
         fnLog("No event data available.", fnLineNo())
@@ -37,6 +37,11 @@ def construct_and_post_comment(issue_data, event_data):
         # 判断是否已经存在相同的 Url
         if issue_data and any(
             note.get("Url") == repo_url for note in issue_data.get("note_data", [])
+        ):
+            continue
+        # 前一个 issue 中重复同样跳过
+        if issues_data_prev and any(
+            note.get("Url") == repo_url for note in issues_data_prev.get("note_data", [])
         ):
             continue
         repo_info = http_git_repo(event["repo"]["name"], config_info["GIT_TOKEN"])
@@ -100,6 +105,7 @@ def process_json_files():
     json_files = list_json_files()
     events_data = []
     issues_data = None
+    issues_data_prev = None
     for json_file in json_files:
         if json_file["file_name"] == "github_events.json":
             events_data = parse_json_file(json_file["file_path"])
@@ -109,9 +115,11 @@ def process_json_files():
             cur_data = parse_json_file(json_file["file_path"])
             if cur_data["note_count"] + 1 <= config_info["MAX_NOTES"]:
                 issues_data = cur_data
+            else:
+                issues_data_prev = cur_data
         if issues_data and events_data:
             break
     if config_info["DEBUG"]:
         fnBug(f"debug 模式跳过提交新 issue 或 comment", fnLineNo())
         return
-    construct_and_post_comment(issues_data, events_data)
+    construct_and_post_comment(issues_data, issues_data_prev, events_data)
