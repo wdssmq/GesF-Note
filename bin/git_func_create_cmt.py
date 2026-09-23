@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 import yaml
 
-from bin.base import config_info, fnBug, fnLog, fnLineNo
+from bin.base import config_info, fnBug, fnLog, fnLineNo, fnTimeDiffByTimeStr
 from bin.http_func import http_git_create_comment, http_git_repo, http_git_create_issue
 
 
@@ -119,6 +119,15 @@ def process_json_files():
                 issue_data_prev = cur_data
         if issue_data and events_data:
             break
+    # ---
+    if not issue_data:
+        return
+    # ---
+    diff = fnTimeDiffByTimeStr(issue_data.get("updated_at", ""))
+    if diff < config_info.get("MIN_TIME_DIFF", 3600):
+        fnBug(f"时间差为 {diff} 秒, 小于最小时间差", fnLineNo())
+        return
+    # ---
     if config_info["DEBUG"]:
         fnBug(f"debug 模式跳过提交新 issue 或 comment", fnLineNo())
         return

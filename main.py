@@ -22,6 +22,9 @@ def init():
     # debug 模式
     config_info["DEBUG"] = False
 
+    # 自动评论最小时间差（秒）
+    config_info["MIN_TIME_DIFF"] = 3600
+
     # GIT_REPO: wdssmq/GesF-Note
     # GIT_TOKEN: https://github.com/settings/tokens
 
