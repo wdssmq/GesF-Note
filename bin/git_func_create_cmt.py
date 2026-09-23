@@ -111,4 +111,7 @@ def process_json_files():
                 issues_data = cur_data
         if issues_data and events_data:
             break
+    if config_info["DEBUG"]:
+        fnBug(f"debug 模式跳过提交新 issue 或 comment", fnLineNo())
+        return
     construct_and_post_comment(issues_data, events_data)

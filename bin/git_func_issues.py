@@ -52,6 +52,9 @@ def parse_note_info(yaml_body):
         note_info = yaml.safe_load(yaml_body)
     except yaml.YAMLError:
         note_info = {}
+        if config_info["DEBUG"]:
+            print("YAML 解析错误，尝试逐行解析：")
+            print(yaml_body)
         for line in yaml_body.splitlines():
             line = line.strip()
             if not line or ":" not in line:
