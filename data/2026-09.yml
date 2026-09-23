@@ -2,7 +2,7 @@ comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/8/comments
 issues_title: 2026-09
 issues_url: https://github.com/wdssmq/GesF-Note/issues/8
 issues_user: github-actions[bot]
-note_count: 6
+note_count: 7
 note_data:
 - Desc: Z-BlogPHP博客程序
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -43,3 +43,9 @@ note_data:
   Title: wdssmq/Markdown-To-Z-Blog
   Type: 代码
   Url: https://github.com/wdssmq/Markdown-To-Z-Blog
+- Desc: 用于 Z-BlogPHP 开发调整的辅助脚本
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: wdssmq/zbp-tools
+  Type: 代码
+  Url: https://github.com/wdssmq/zbp-tools

@@ -53,7 +53,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/Markdown-To-Z-Blog"
+        },
+        {
+            "Title": "wdssmq/zbp-tools",
+            "Desc": "用于 Z-BlogPHP 开发调整的辅助脚本",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/zbp-tools"
         }
     ],
-    "note_count": 6
+    "note_count": 7
 }
