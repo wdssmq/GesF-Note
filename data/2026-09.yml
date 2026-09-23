@@ -3,7 +3,7 @@ created_at: '2026-09-21T01:51:38Z'
 issues_title: 2026-09
 issues_url: https://github.com/wdssmq/GesF-Note/issues/8
 issues_user: github-actions[bot]
-note_count: 10
+note_count: 11
 note_data:
 - Desc: Z-BlogPHP博客程序
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -68,4 +68,12 @@ note_data:
   Title: wdssmq/ai-tools
   Type: 代码
   Url: https://github.com/wdssmq/ai-tools
-updated_at: '2026-09-23T08:59:43Z'
+- Desc: 「水水」旧文章回顾 - Z-Blog 应用中心
+  Image: https://app-cdn.zblogcn.com/files/phpplugin/mz_ReviewLog/logo.png
+  Source: '[url=https://app.zblogcn.com/?auth=6401c4a7-89cd-48f9-a68b-d6464d8c3bc8]沉冰浮水
+    - Z-Blog 应用中心[/url]'
+  Tags: Z-BlogPHP, Z-BlogPHP_插件
+  Title: Z-BlogPHP - 「水水」旧文章回顾 - Z-Blog 应用中心
+  Type: 代码
+  Url: https://app.zblogcn.com/?id=31464
+updated_at: '2026-09-23T09:03:51Z'
