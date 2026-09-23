@@ -104,22 +104,22 @@ def process_json_files():
     """处理所有 JSON 文件"""
     json_files = list_json_files()
     events_data = []
-    issues_data = None
-    issues_data_prev = None
+    issue_data = None
+    issue_data_prev = None
     for json_file in json_files:
         if json_file["file_name"] == "github_events.json":
             events_data = parse_json_file(json_file["file_path"])
-        elif issues_data is not None:
+        elif issue_data is not None:
             continue
         else:
             cur_data = parse_json_file(json_file["file_path"])
             if cur_data["note_count"] + 1 <= config_info["MAX_NOTES"]:
-                issues_data = cur_data
+                issue_data = cur_data
             else:
-                issues_data_prev = cur_data
-        if issues_data and events_data:
+                issue_data_prev = cur_data
+        if issue_data and events_data:
             break
     if config_info["DEBUG"]:
         fnBug(f"debug 模式跳过提交新 issue 或 comment", fnLineNo())
         return
-    construct_and_post_comment(issues_data, issues_data_prev, events_data)
+    construct_and_post_comment(issue_data, issue_data_prev, events_data)
