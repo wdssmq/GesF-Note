@@ -40,7 +40,7 @@ jobs:
           GIT_REPO: ${{ github.repository }}
           HERO_PATH: blog-astro/public/placeholder-hero.jpg
         run: |
-          wget -O $HERO_PATH https://opengraph.githubassets.com/0/$GIT_REPO
+          wget -O $HERO_PATH https://opengraph.githubassets.com/0/$GIT_REPO || true
       # Commit Changes To Git
       - name: Commit files
         run: |
