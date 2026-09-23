@@ -61,7 +61,23 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/zbp-tools"
+        },
+        {
+            "Title": "wdssmq/zbp-note",
+            "Desc": "一些有关 Z-BlogPHP 的笔记",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/zbp-note"
+        },
+        {
+            "Title": "wdssmq/zbp_UEditor",
+            "Desc": "UEditor For Z-BlogPHP ",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/zbp_UEditor"
         }
     ],
-    "note_count": 7
+    "note_count": 9
 }
