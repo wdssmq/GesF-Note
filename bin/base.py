@@ -2,6 +2,7 @@
 
 import os
 import time
+from datetime import datetime, timezone
 import inspect
 
 # pylint: disable=invalid-name
@@ -69,6 +70,22 @@ def fnGetTimeStr(time_stamp):
     """时间戳转换"""
     return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time_stamp))
 
+def fnParseGitHubTime(time_str):
+    """解析 GitHub 时间字符串为 datetime 对象"""
+    try:
+        return datetime.strptime(time_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except Exception:
+        return datetime.now(timezone.utc)
+
+def fnTimeDiff(time):
+    """获取当前时间与指定时间的差值（秒）"""
+    current_time = datetime.now(timezone.utc)
+    return int((current_time - time).total_seconds())
+
+def fnTimeDiffByTimeStr(time_str):
+    """获取当前时间戳与指定 GitHub 时间字符串的差值"""
+    time = fnParseGitHubTime(time_str)
+    return fnTimeDiff(time)
 
 def fnGetDirsInDir(path):
     """获取子文件夹"""
