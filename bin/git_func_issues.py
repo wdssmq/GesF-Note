@@ -122,10 +122,11 @@ def parse_and_save_issues_details():
         comments = git_func_issues_details(comments, "comments")
         # 对于每个 issue comment，提取信息
         for comment in comments:
-            # 评论用户必须是 issues 用户
+            # 验证评论用户，1、和创建者相同 2、github-actions[bot] 3、当前配置的 GIT_USER
             if (
                 comment["user"]["login"] == issue["user"]["login"]
                 or "github-actions[bot]" == comment["user"]["login"]
+                or comment["user"]["login"] == config_info["GIT_USER"]
             ):
                 new_item["note_data"] = extract_and_append_info(
                     comment["body"], new_item["note_data"]
