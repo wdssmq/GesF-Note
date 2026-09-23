@@ -53,6 +53,22 @@
             "Url": "https://github.com/wdssmq/L78Z-No-Code"
         },
         {
+            "Title": "GitHub - wdssmq/L78Z-No-Code",
+            "Desc": "各种旧代码，虽然有些并没有很旧；",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/L78Z-No-Code"
+        },
+        {
+            "Title": "GitHub - wdssmq/Z-BlogPHP-Color",
+            "Desc": "zbp 模板语法高亮（VSCode 插件）",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/Z-BlogPHP-Color"
+        },
+        {
             "Title": "GitHub - wdssmq/Z-BlogPHP-Color",
             "Desc": "zbp 模板语法高亮（VSCode 插件）",
             "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
@@ -117,5 +133,5 @@
             "Url": "https://github.com/wdssmq/rollup-plugin-monkey"
         }
     ],
-    "note_count": 14
+    "note_count": 16
 }
