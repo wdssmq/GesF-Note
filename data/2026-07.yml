@@ -2,7 +2,7 @@ comments_url: https://api.github.com/repos/wdssmq/GesF-Note/issues/7/comments
 issues_title: 2026-07
 issues_url: https://github.com/wdssmq/GesF-Note/issues/7
 issues_user: github-actions[bot]
-note_count: 13
+note_count: 14
 note_data:
 - Desc: 关于`沉冰浮水`
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -82,3 +82,9 @@ note_data:
   Title: GitHub - wdssmq/zbp-app-pack
   Type: 代码
   Url: https://github.com/wdssmq/zbp-app-pack
+- Desc: ':lollipop: Wow, such a lovely HTML5 danmaku video player'
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: wdssmq/DPlayer
+  Type: 代码
+  Url: https://github.com/wdssmq/DPlayer
