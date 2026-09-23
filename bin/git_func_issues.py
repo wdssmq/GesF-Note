@@ -46,6 +46,32 @@ def git_func_issues_details(list_data, list_type="issues"):
 
 
 # 从 issue 的 body 中提取信息并合并到字典
+def parse_note_info(yaml_body):
+    """解析 note 的 YAML 信息，兼容历史上的非标准键值行"""
+    try:
+        note_info = yaml.safe_load(yaml_body)
+    except yaml.YAMLError:
+        note_info = {}
+        for line in yaml_body.splitlines():
+            line = line.strip()
+            if not line or ":" not in line:
+                continue
+            key, value = line.split(":", 1)
+            value = value.strip()
+            if not key.strip():
+                continue
+            try:
+                parsed_value = yaml.safe_load(value) if value else ""
+                if isinstance(parsed_value, (dict, list, tuple, set)):
+                    note_info[key.strip()] = value
+                else:
+                    note_info[key.strip()] = parsed_value
+            except yaml.YAMLError:
+                note_info[key.strip()] = value
+    return note_info if isinstance(note_info, dict) else {}
+
+
+# 从 issue 的 body 中提取信息并合并到字典
 def extract_and_append_info(body, info_dict):
     """从 issue 的 body 中提取信息"""
     # 匹配 ```yml ... ``` 中的内容
@@ -53,8 +79,9 @@ def extract_and_append_info(body, info_dict):
     if not yaml_str:
         return info_dict
     # 将 yaml 字符串转换为字典
-    note_info = yaml.safe_load(yaml_str.group(1))
-    info_dict.append(note_info)
+    note_info = parse_note_info(yaml_str.group(1))
+    if note_info:
+        info_dict.append(note_info)
     return info_dict
 
 

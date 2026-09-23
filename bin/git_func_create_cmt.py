@@ -3,6 +3,7 @@
 import os
 import json
 from datetime import datetime
+import yaml
 
 from bin.base import config_info, fnBug, fnLog, fnLineNo
 from bin.http_func import http_git_create_comment, http_git_repo, http_git_create_issue
@@ -18,21 +19,18 @@ def check_response(res_info, lineno=-1):
     return True
 
 
+def build_note_body(note_info):
+    """构造 note body，确保动态内容被安全序列化为 YAML"""
+    return "```yml\n%s```\n" % yaml.safe_dump(
+        note_info, allow_unicode=True, sort_keys=False
+    )
+
+
 def construct_and_post_comment(issue_data, event_data):
     """构造评论并发布到指定的 issue，必要时创建新 issue"""
     if not event_data:
         fnLog("No event data available.", fnLineNo())
         return
-
-    tpl = """```yml
-Title: GitHub - {Title}
-Desc: {Desc}
-Source: "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]"
-Tags: GitHub
-Type: 代码
-Url: {Url}
-
-```"""
 
     for event in event_data:
         repo_url = f'https://github.com/{event["repo"]["name"]}'
@@ -50,9 +48,12 @@ Url: {Url}
         note_info = {
             "Title": repo_title,
             "Desc": repo_desc,
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
             "Url": repo_url,
         }
-        note_body = tpl.format(**note_info)
+        note_body = build_note_body(note_info)
         if issue_data and issue_data.get("comments_url"):
             res = http_git_create_comment(
                 issue_data["comments_url"], note_body, config_info["GIT_TOKEN"]
