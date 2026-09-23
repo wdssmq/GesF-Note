@@ -28,7 +28,7 @@ def git_func_issues(comments_url=None):
 
 
 pick_keys_info = {
-    "issues": ["url", "html_url", "title", "body", "comments_url", "user"],
+    "issues": ["url", "html_url", "title", "body", "comments_url", "user", "created_at", "updated_at"],
     "comments": ["url", "html_url", "body", "user"],
 }
 
@@ -115,6 +115,9 @@ def parse_and_save_issues_details():
         new_item["issues_url"] = issue["html_url"]
         new_item["issues_user"] = issue["user"]["login"]
         new_item["comments_url"] = issue["comments_url"]
+        # 记录时间信息
+        new_item["created_at"] = issue["created_at"]
+        new_item["updated_at"] = issue["updated_at"]
         new_item["note_data"] = extract_and_append_info(issue["body"], [])
         # 抓取 issue comments
         comments = git_func_issues(issue["comments_url"])
