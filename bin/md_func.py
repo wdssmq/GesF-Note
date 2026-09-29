@@ -28,6 +28,8 @@ md_issues_tpl = """
 # 修复错误的 … 符号为 ……
 def fix_ellipsis(text):
     """修复错误的 … 符号为 ……"""
+    if text is None:
+        return ""
     text = text.replace("……", "…")
     return text.replace("…", "……")
 

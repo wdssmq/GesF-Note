@@ -4,10 +4,14 @@ import unittest
 
 from bin.git_func_create_cmt import build_note_body
 from bin.git_func_issues import extract_and_append_info
+from bin.md_func import fix_ellipsis
 
 
 class IssueYamlHandlingTests(unittest.TestCase):
     """Validate malformed and generated note YAML handling."""
+
+    def test_fix_ellipsis_handles_missing_description(self):
+        self.assertEqual(fix_ellipsis(None), "")
 
     def test_extract_and_append_info_handles_legacy_desc_with_colons(self):
         body = """```yml
