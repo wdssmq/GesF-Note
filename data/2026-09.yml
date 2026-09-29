@@ -3,7 +3,7 @@ created_at: '2026-09-21T01:51:38Z'
 issues_title: 2026-09
 issues_url: https://github.com/wdssmq/GesF-Note/issues/8
 issues_user: github-actions[bot]
-note_count: 12
+note_count: 14
 note_data:
 - Desc: Z-BlogPHP博客程序
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -82,4 +82,18 @@ note_data:
   Title: wdssmq/zbp_zberOne
   Type: 代码
   Url: https://github.com/wdssmq/zbp_zberOne
-updated_at: '2026-09-25T02:03:29Z'
+- Desc: VSCode 代码片段，Z-BlogPHP 为主
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: wdssmq/snippets
+  Type: 代码
+  Url: https://github.com/wdssmq/snippets
+- Desc: 一个 Z-BlogPHP 插件 - Z-Blog 应用中心
+  Image: https://app-cdn.zblogcn.com/files/phpplugin/zberOne/logo.png
+  Source: '[url=https://app.zblogcn.com/?auth=6401c4a7-89cd-48f9-a68b-d6464d8c3bc8]沉冰浮水
+    - Z-Blog 应用中心[/url]'
+  Tags: Z-BlogPHP, Z-BlogPHP_插件
+  Title: Z-BlogPHP - 一个 Z-BlogPHP 插件 - Z-Blog 应用中心
+  Type: 代码
+  Url: https://app.zblogcn.com/?id=15575
+updated_at: '2026-09-29T16:59:21Z'
