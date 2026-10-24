@@ -51,14 +51,23 @@ def http_git_headers(token=""):
 
 def http_git_check(res_data):
     """判断抓取信息是否报错"""
-    # 检查 dict 类型的返回值
-    error_message = ""
-    if isinstance(res_data, dict) and "status" in res_data.keys():
-        if res_data["status"] != 200:
-            error_message = res_data.get("message", "未知错误")
+    if hasattr(res_data, "status_code"):
+        data = res_data.json()
+        if not res_data.ok:
+            message = (
+                data.get("message", f"HTTP {res_data.status_code}")
+                if isinstance(data, dict)
+                else f"HTTP {res_data.status_code}"
+            )
+            return {"error": True, "message": message, "data": data}
+        return {"error": False, "data": data}
 
-    if error_message != "":
-        return {"error": True, "message": error_message, "data": res_data}
+    if isinstance(res_data, dict) and res_data.get("status", 200) != 200:
+        return {
+            "error": True,
+            "message": res_data.get("message", "未知错误"),
+            "data": res_data,
+        }
 
     return {"error": False, "data": res_data}
 
@@ -68,7 +77,7 @@ def http_git_events(user="", token=""):
     url = f"https://api.github.com/users/{user}/events/public?per_page=100"
     headers = http_git_headers(token)
     res_data = http({"url": url, "method": "get"}, headers_arg=headers)
-    return http_git_check(res_data.json())
+    return http_git_check(res_data)
 
 
 def http_git_repo(repo="", token=""):
@@ -76,7 +85,7 @@ def http_git_repo(repo="", token=""):
     url = f"https://api.github.com/repos/{repo}"
     headers = http_git_headers(token)
     res_data = http({"url": url, "method": "get"}, headers_arg=headers)
-    return http_git_check(res_data.json())
+    return http_git_check(res_data)
 
 
 def http_git_issues(labels="pick", repo="", token=""):
@@ -84,7 +93,7 @@ def http_git_issues(labels="pick", repo="", token=""):
     url = f"https://api.github.com/repos/{repo}/issues?labels={labels}"
     headers = http_git_headers(token)
     res_data = http({"url": url, "method": "get"}, headers_arg=headers)
-    return http_git_check(res_data.json())
+    return http_git_check(res_data)
 
 
 def http_git_issues_comments(comments_url, token=""):
@@ -92,7 +101,7 @@ def http_git_issues_comments(comments_url, token=""):
     url = comments_url
     headers = http_git_headers(token)
     res_data = http({"url": url, "method": "get"}, headers_arg=headers)
-    return http_git_check(res_data.json())
+    return http_git_check(res_data)
 
 
 def http_git_create_comment(comments_url, comment, token):
@@ -101,7 +110,7 @@ def http_git_create_comment(comments_url, comment, token):
     res_data = http(
         {"url": comments_url, "method": "post"}, json_arg=data, headers_arg=headers
     )
-    return http_git_check(res_data.json())
+    return http_git_check(res_data)
 
 
 def http_git_create_issue(repo, title, body, labels, token):
@@ -109,4 +118,4 @@ def http_git_create_issue(repo, title, body, labels, token):
     headers = http_git_headers(token)
     data = {"title": title, "body": body, "labels": labels}
     res_data = http({"url": url, "method": "post"}, json_arg=data, headers_arg=headers)
-    return http_git_check(res_data.json())
+    return http_git_check(res_data)

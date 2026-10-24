@@ -12,6 +12,9 @@ on:
 jobs:
   def:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
     env:
       TZ: Asia/Shanghai
     steps:
