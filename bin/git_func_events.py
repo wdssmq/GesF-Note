@@ -2,7 +2,7 @@
 
 import json
 
-from bin.base import config_info, fnBug, fnLineNo
+from bin.base import config_info, fnBug, fnErr, fnLineNo
 from bin.http_func import http_git_events
 
 
@@ -10,8 +10,8 @@ def git_func_events():
     """获取 events 列表"""
     res = http_git_events(config_info["GIT_USER"], config_info["GIT_TOKEN"])
     if "error" in res.keys() and res["error"]:
-        fnBug(res["message"], fnLineNo())
-        fnBug(res["data"])
+        fnErr(res["message"], fnLineNo())
+        fnErr(res["data"])
         return []
     return res["data"]
 

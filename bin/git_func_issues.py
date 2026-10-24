@@ -4,7 +4,7 @@ import json
 import re
 import yaml
 
-from bin.base import config_info, debug_info, fnBug, fnLineNo
+from bin.base import config_info, debug_info, fnBug, fnErr, fnLineNo
 from bin.http_func import http_git_issues, http_git_issues_comments
 from bin.md_func import save_md
 
@@ -21,9 +21,9 @@ def git_func_issues(comments_url=None):
     else:
         res = http_git_issues_comments(comments_url, config_info["GIT_TOKEN"])
     if "error" in res.keys() and res["error"]:
-        fnBug(res["message"], fnLineNo())
-        fnBug(res["data"])
-        return []
+        fnErr(res["message"], fnLineNo())
+        fnErr(res["data"])
+        raise RuntimeError(f"GitHub Issues API request failed: {res['message']}")
     return res["data"]
 
 

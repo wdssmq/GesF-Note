@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 import yaml
 
-from bin.base import config_info, fnBug, fnLog, fnLineNo, fnTimeDiffByTimeStr
+from bin.base import config_info, fnBug, fnErr, fnLog, fnLineNo, fnTimeDiffByTimeStr
 from bin.http_func import http_git_create_comment, http_git_repo, http_git_create_issue
 
 
@@ -13,8 +13,8 @@ from bin.http_func import http_git_create_comment, http_git_repo, http_git_creat
 def check_response(res_info, lineno=-1):
     """检查 HTTP 响应是否包含错误"""
     if "error" in res_info.keys() and res_info["error"]:
-        fnBug(res_info["message"], lineno)
-        fnBug(res_info["data"])
+        fnErr(res_info["message"], lineno)
+        fnErr(res_info["data"])
         return False
     return True
 
