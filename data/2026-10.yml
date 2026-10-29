@@ -3,7 +3,7 @@ created_at: '2026-10-24T05:52:51Z'
 issues_title: 2026-10
 issues_url: https://github.com/wdssmq/GesF-Note/issues/11
 issues_user: github-actions[bot]
-note_count: 1
+note_count: 2
 note_data:
 - Desc: 一个收集 B 站视频链接的「奇怪插件」 For Z-BlogPHP
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -11,4 +11,10 @@ note_data:
   Title: wdssmq/zbp_odd_Later
   Type: 代码
   Url: https://github.com/wdssmq/zbp_odd_Later
-updated_at: '2026-10-24T05:52:51Z'
+- Desc: 对 Z-BlogPHP 插件 / 主题仓库统一执行 ESLint（JS）与 PHP-CS-Fixer（PHP）工作流
+  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
+  Tags: GitHub
+  Title: wdssmq/zbp-app-lint
+  Type: 代码
+  Url: https://github.com/wdssmq/zbp-app-lint
+updated_at: '2026-10-25T01:53:32Z'
