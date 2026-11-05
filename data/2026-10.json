@@ -4,7 +4,7 @@
     "issues_user": "github-actions[bot]",
     "comments_url": "https://api.github.com/repos/wdssmq/GesF-Note/issues/11/comments",
     "created_at": "2026-10-24T05:52:51Z",
-    "updated_at": "2026-10-29T06:51:18Z",
+    "updated_at": "2026-11-01T02:45:38Z",
     "note_data": [
         {
             "Title": "wdssmq/zbp_odd_Later",
@@ -29,7 +29,15 @@
             "Tags": "GitHub",
             "Type": "代码",
             "Url": "https://github.com/wdssmq/zbp-tools"
+        },
+        {
+            "Title": "wdssmq/zbp-docker-compose",
+            "Desc": "使用 Docker Compose 快捷部署 Z-BlogPHP + MySQL",
+            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
+            "Tags": "GitHub",
+            "Type": "代码",
+            "Url": "https://github.com/wdssmq/zbp-docker-compose"
         }
     ],
-    "note_count": 3
+    "note_count": 4
 }
