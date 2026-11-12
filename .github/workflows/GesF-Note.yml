@@ -9,6 +9,10 @@ on:
 #       - main
   workflow_dispatch:
 
+concurrency:
+  group: gesf-note-update
+  cancel-in-progress: false
+
 jobs:
   def:
     runs-on: ubuntu-latest
