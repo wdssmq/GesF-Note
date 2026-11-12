@@ -105,11 +105,16 @@ def save_data(data, file_type="yml"):
 def parse_and_save_issues_details():
     """解析并保存 issues 详情"""
     # 抓取 issues
-    issues = git_func_issues()
+    issues = [item for item in git_func_issues() if "pull_request" not in item]
     # 筛选数据
     details = git_func_issues_details(issues)
     # 对于每个 issue，提取信息
+    result = []
+    titles = set()
     for issue in details:
+        if issue["title"] in titles:
+            raise ValueError(f"期刊 issue 标题重复: {issue['title']}")
+        titles.add(issue["title"])
         new_item = {}
         new_item["issues_title"] = issue["title"]
         new_item["issues_url"] = issue["html_url"]
@@ -140,3 +145,5 @@ def parse_and_save_issues_details():
         save_data(new_item, "yml")
         save_data(new_item, "json")
         save_md(new_item, config_info["MD_PATH"])
+        result.append(new_item)
+    return sorted(result, key=lambda item: (item["created_at"], item["issues_url"]), reverse=True)
