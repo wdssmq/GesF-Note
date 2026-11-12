@@ -88,20 +88,32 @@ def http_git_repo(repo="", token=""):
     return http_git_check(res_data)
 
 
+def http_git_pages(url, token):
+    """获取 GitHub 列表的全部分页。"""
+    headers = http_git_headers(token)
+    items = []
+    while url:
+        response = http({"url": url, "method": "get"}, headers_arg=headers)
+        result = http_git_check(response)
+        if result["error"]:
+            return result
+        if not isinstance(result["data"], list):
+            raise ValueError(f"GitHub API 返回的列表无效: {url}")
+        items.extend(result["data"])
+        url = response.links.get("next", {}).get("url")
+    return {"error": False, "data": items}
+
+
 def http_git_issues(labels="pick", repo="", token=""):
     """获取 issues 列表"""
     url = f"https://api.github.com/repos/{repo}/issues?labels={labels}"
-    headers = http_git_headers(token)
-    res_data = http({"url": url, "method": "get"}, headers_arg=headers)
-    return http_git_check(res_data)
+    return http_git_pages(url, token)
 
 
 def http_git_issues_comments(comments_url, token=""):
     """获取 issue comments 列表"""
     url = comments_url
-    headers = http_git_headers(token)
-    res_data = http({"url": url, "method": "get"}, headers_arg=headers)
-    return http_git_check(res_data)
+    return http_git_pages(url, token)
 
 
 def http_git_create_comment(comments_url, comment, token):
