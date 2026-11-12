@@ -1,131 +1,95 @@
-"""将 GitHub 仓库动态作为评论添加到指定的 issue 中"""
+"""将来源内容添加到期刊 issue。"""
 
-import os
-import json
 from datetime import datetime
+
 import yaml
 
-from bin.base import config_info, fnBug, fnErr, fnLog, fnLineNo, fnTimeDiffByTimeStr
-from bin.http_func import http_git_create_comment, http_git_repo, http_git_create_issue
+from config import DATA_SOURCES, TYPE_ORDER
+from bin.base import config_info, fnBug, fnLineNo, fnLog, fnTimeDiffByTimeStr
+from bin.http_func import http_git_create_comment, http_git_create_issue
+from bin.sources.github_events import github_event_note
+from bin.sources.rss import rss_note
 
 
-# 封装 res 判断
-def check_response(res_info, lineno=-1):
-    """检查 HTTP 响应是否包含错误"""
-    if "error" in res_info.keys() and res_info["error"]:
-        fnErr(res_info["message"], lineno)
-        fnErr(res_info["data"])
-        return False
-    return True
+SOURCE_HANDLERS = {
+    "github_events": github_event_note,
+    "rss": rss_note,
+}
 
 
 def build_note_body(note_info):
-    """构造 note body，确保动态内容被安全序列化为 YAML"""
+    """将条目序列化为 issue 使用的 YAML。"""
     return "```yml\n%s```\n" % yaml.safe_dump(
         note_info, allow_unicode=True, sort_keys=False
     )
 
 
-def construct_and_post_comment(issue_data, issues_data_prev, event_data):
-    """构造评论并发布到指定的 issue，必要时创建新 issue"""
-    if not event_data:
-        fnLog("No event data available.", fnLineNo())
-        return
-
-    for event in event_data:
-        repo_url = f'https://github.com/{event["repo"]["name"]}'
-        # 判断是否已经存在相同的 Url
-        if issue_data and any(
-            note.get("Url") == repo_url for note in issue_data.get("note_data", [])
-        ):
-            continue
-        # 前一个 issue 中重复同样跳过
-        if issues_data_prev and any(
-            note.get("Url") == repo_url for note in issues_data_prev.get("note_data", [])
-        ):
-            continue
-        repo_info = http_git_repo(event["repo"]["name"], config_info["GIT_TOKEN"])
-        if not check_response(repo_info, fnLineNo()):
-            continue
-        repo_desc = repo_info["data"].get("description", "无描述")
-        repo_title = repo_info["data"].get("full_name", "无标题")
-
-        note_info = {
-            "Title": repo_title,
-            "Desc": repo_desc,
-            "Source": "[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]",
-            "Tags": "GitHub",
-            "Type": "代码",
-            "Url": repo_url,
-        }
-        note_body = build_note_body(note_info)
-        if issue_data and issue_data.get("comments_url"):
-            res = http_git_create_comment(
-                issue_data["comments_url"], note_body, config_info["GIT_TOKEN"]
-            )
-            if not check_response(res, fnLineNo()):
-                continue
-        else:
-            issue_title = datetime.now().strftime("%Y-%m")
-            res = http_git_create_issue(
-                config_info["GIT_REPO"],
-                issue_title,
-                note_body,
-                [config_info["PICK_LABEL"]],
-                config_info["GIT_TOKEN"],
-            )
-            if not check_response(res, fnLineNo()):
-                continue
-        break
+def checked_data(result):
+    """返回 GitHub 响应数据，失败时中断处理。"""
+    if result.get("error"):
+        raise RuntimeError(f"GitHub API request failed: {result['message']}")
+    return result["data"]
 
 
-# 解析 JSON 文件
-def parse_json_file(file_path):
-    """解析 JSON 文件"""
-    with open(file_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data
+def next_type(issues):
+    """根据最近期的最后一条决定本次类型。"""
+    if not TYPE_ORDER or len(set(TYPE_ORDER)) != len(TYPE_ORDER):
+        raise ValueError("Type 轮换配置为空或存在重复")
+    if not issues or not issues[0]["note_data"]:
+        return TYPE_ORDER[0]
+    last_type = issues[0]["note_data"][-1].get("Type")
+    if last_type not in TYPE_ORDER:
+        raise ValueError(f"最新条目的 Type 未配置: {last_type!r}")
+    return TYPE_ORDER[(TYPE_ORDER.index(last_type) + 1) % len(TYPE_ORDER)]
 
 
-# 遍历文件夹下的所有 json 文件
-def list_json_files():
-    """列出目录下的所有 JSON 文件"""
-    json_files = []
-    for root, _, files in os.walk(config_info["DATA_PATH"]):
-        for file in files:
-            if file.endswith(".json"):
-                file_info = {"file_name": file, "file_path": os.path.join(root, file)}
-                json_files.append(file_info)
-    return json_files
+def choose_note(note_type, excluded_urls):
+    """仅处理轮到的类型。"""
+    sources = [source for source in DATA_SOURCES if source["type"] == note_type]
+    if len(sources) != 1:
+        raise ValueError(f"Type {note_type!r} 需要配置一个数据来源")
+    source = sources[0]
+    handler = SOURCE_HANDLERS.get(source["kind"])
+    if handler is None:
+        raise ValueError(f"数据来源类型未配置: {source['kind']!r}")
+    return handler(source, excluded_urls)
 
 
-# 基于 JSON 文件的内容进行处理
-def process_json_files():
-    """处理所有 JSON 文件"""
-    json_files = list_json_files()
-    events_data = []
-    issue_data = None
-    issue_data_prev = None
-    for json_file in json_files:
-        if json_file["file_name"] == "github_events.json":
-            events_data = parse_json_file(json_file["file_path"])
-        elif issue_data is not None:
-            continue
-        else:
-            cur_data = parse_json_file(json_file["file_path"])
-            if cur_data["note_count"] + 1 <= config_info["MAX_NOTES"]:
-                issue_data = cur_data
-            else:
-                issue_data_prev = cur_data
-        if issue_data and events_data:
-            break
-    if issue_data:
-        diff = fnTimeDiffByTimeStr(issue_data.get("updated_at", ""))
+def process_json_files(issues):
+    """按期刊状态选取并追加最多一条记录。"""
+    latest = issues[0] if issues else None
+    if latest:
+        diff = fnTimeDiffByTimeStr(latest["updated_at"])
         if diff < config_info.get("MIN_TIME_DIFF", 3600):
             fnBug(f"时间差为 {diff} 秒, 小于最小时间差", fnLineNo())
             return
-    # ---
     if config_info["DEBUG"]:
-        fnBug(f"debug 模式跳过提交新 issue 或 comment", fnLineNo())
+        fnBug("debug 模式跳过提交新 issue 或 comment", fnLineNo())
         return
-    construct_and_post_comment(issue_data, issue_data_prev, events_data)
+
+    excluded_urls = {
+        note["Url"]
+        for issue in issues[:2]
+        for note in issue["note_data"]
+        if note.get("Url")
+    }
+    note_type = next_type(issues)
+    note = choose_note(note_type, excluded_urls)
+    if note is None:
+        fnLog(f"Type {note_type} 没有可追加的条目", fnLineNo())
+        return
+
+    body = build_note_body(note)
+    if latest and latest["note_count"] < config_info["MAX_NOTES"]:
+        result = http_git_create_comment(
+            latest["comments_url"], body, config_info["GIT_TOKEN"]
+        )
+    else:
+        title = datetime.now().strftime("%Y-%m")
+        if any(issue["issues_title"] == title for issue in issues):
+            raise ValueError(f"期刊 issue 标题已存在: {title}")
+        result = http_git_create_issue(
+            config_info["GIT_REPO"], title, body,
+            [config_info["PICK_LABEL"]], config_info["GIT_TOKEN"]
+        )
+    checked_data(result)
