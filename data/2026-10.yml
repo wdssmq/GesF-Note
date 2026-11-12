@@ -3,7 +3,7 @@ created_at: '2026-10-24T05:52:51Z'
 issues_title: 2026-10
 issues_url: https://github.com/wdssmq/GesF-Note/issues/11
 issues_user: github-actions[bot]
-note_count: 7
+note_count: 6
 note_data:
 - Desc: 一个收集 B 站视频链接的「奇怪插件」 For Z-BlogPHP
   Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
@@ -41,10 +41,4 @@ note_data:
   Title: wdssmq/ai-tools
   Type: 代码
   Url: https://github.com/wdssmq/ai-tools
-- Desc: null
-  Source: '[url=https://github.com/wdssmq]wdssmq (沉冰浮水)@github[/url]'
-  Tags: GitHub
-  Title: wdssmq/zbp_mz_ReviewLog
-  Type: 代码
-  Url: https://github.com/wdssmq/zbp_mz_ReviewLog
-updated_at: '2026-11-12T17:15:53Z'
+updated_at: '2026-11-12T17:32:25Z'
